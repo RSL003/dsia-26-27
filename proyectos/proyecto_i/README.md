@@ -1,5 +1,11 @@
 # Proyecto I — Programación avanzada en Python (10 %)
 
+## Trabajo desarrollado
+
+Consulta [ENTREGA.md](ENTREGA.md) para ejecutar ambas partes: **A, ventas**, y **B, histórico horario de calidad del aire de Madrid (más de 10.000 filas)**. Datos locales en `datos/`, resultados en `resultados/` y pruebas en `tests/`. Uso de IA documentado en [AI_USAGE.md](AI_USAGE.md).
+
+---
+
 **Temas:** 1  
 **Presentación / arranque en clase:** 14 de septiembre de 2026  
 **Entrega orientativa:** antes de la sesión de pytest (28 sep), salvo indicación distinta en aula.

@@ -1,0 +1,11 @@
+fila_csv,fecha,region,producto,unidades,precio_unitario,cliente_id,motivos
+5,2026-02-05,Norte,Gateway,0,120.0,C010,"unidades: debe ser numérico, finito y > 0"
+43,2026-02-09,Oeste,Cable Kit,4,0,C015,"precio_unitario: debe ser numérico, finito y > 0"
+56,2026-02-01,Sur,Sensor B,,32.0,C004,"unidades: debe ser numérico, finito y > 0; importe: no se puede representar como número finito"
+65,2026-02-11,Norte,Sensor A,,19.5,C018,"unidades: debe ser numérico, finito y > 0; importe: no se puede representar como número finito"
+68,2026-02-17,Oeste,Hub IoT,5,,C025,"precio_unitario: debe ser numérico, finito y > 0; importe: no se puede representar como número finito"
+86,2026-02-15,Este,Gateway,na,120.0,C022,"unidades: debe ser numérico, finito y > 0; importe: no se puede representar como número finito"
+90,2026-02-07,Este,Hub IoT,-2,85.0,C012,"unidades: debe ser numérico, finito y > 0"
+111,2026-02-19,Norte,Cable Kit,0,-1.0,C030,"unidades: debe ser numérico, finito y > 0; precio_unitario: debe ser numérico, finito y > 0"
+136,2026-02-03,Sur,Sensor A,3,-5.0,C007,"precio_unitario: debe ser numérico, finito y > 0"
+151,2026-02-13,Sur,Sensor B,8,-32.0,C020,"precio_unitario: debe ser numérico, finito y > 0"

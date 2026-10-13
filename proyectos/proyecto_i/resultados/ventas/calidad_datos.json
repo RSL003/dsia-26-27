@@ -1,0 +1,69 @@
+{
+  "filas_totales": 150,
+  "filas_validas": 140,
+  "filas_invalidas": 10,
+  "porcentaje_validas": 93.33,
+  "importe_total": 96598.17,
+  "unidades_totales": 1816,
+  "importe_medio_por_registro": 689.99,
+  "importe_por_region": {
+    "Este": 33122.53,
+    "Norte": 22914.63,
+    "Sur": 21396.35,
+    "Oeste": 19164.66
+  },
+  "importe_por_producto": {
+    "Gateway": 40440.0,
+    "Hub IoT": 33058.66,
+    "Sensor B": 11568.66,
+    "Sensor A": 6629.77,
+    "Cable Kit": 4901.08
+  },
+  "top_3_productos": {
+    "Gateway": 40440.0,
+    "Hub IoT": 33058.66,
+    "Sensor B": 11568.66
+  },
+  "importe_por_mes": {
+    "2026-01": 30996.28,
+    "2026-02": 37484.75,
+    "2026-03": 23987.24,
+    "2026-04": 4129.9
+  },
+  "clientes_recurrentes": {
+    "C001": 2,
+    "C002": 4,
+    "C003": 3,
+    "C004": 8,
+    "C005": 5,
+    "C007": 3,
+    "C009": 6,
+    "C010": 4,
+    "C011": 3,
+    "C013": 6,
+    "C015": 4,
+    "C016": 3,
+    "C017": 2,
+    "C018": 4,
+    "C020": 2,
+    "C021": 2,
+    "C022": 5,
+    "C023": 4,
+    "C024": 4,
+    "C025": 4,
+    "C027": 9,
+    "C028": 2,
+    "C029": 3,
+    "C030": 3,
+    "C031": 2,
+    "C032": 8,
+    "C033": 3,
+    "C034": 4,
+    "C035": 7,
+    "C036": 2,
+    "C037": 4,
+    "C038": 5,
+    "C039": 2,
+    "C040": 4
+  }
+}
