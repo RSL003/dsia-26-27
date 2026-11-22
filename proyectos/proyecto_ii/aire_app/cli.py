@@ -42,7 +42,8 @@ def ejecutar_run(argv: list[str]) -> int:
     parser.add_argument("--database", type=Path, default=BASE / "datos/aire_meteo.sqlite")
     parser.add_argument("--models", type=Path, default=BASE / "modelos")
     parser.add_argument("--output", type=Path, default=BASE / "resultados/inferencia")
-    parser.add_argument("--ai-mode", choices=("mock", "real"), default="mock")
+    parser.add_argument("--ai-mode", choices=("mock", "real"), default="mock",
+                        help="Informe local (mock) o Hugging Face Inference (real)")
     args = parser.parse_args(argv)
     logging.basicConfig(level=logging.INFO, format="%(levelname)s %(message)s")
     try:

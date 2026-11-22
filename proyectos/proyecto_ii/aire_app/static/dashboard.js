@@ -17,9 +17,11 @@ boton.addEventListener("click", async () => {
     byId("observado").textContent = `${numero.format(p.ultimo_valor_observado)} ${p.unidad}`;
     byId("objetivo").textContent = p.objetivo_utc.replace("T", " ").replace("+00:00", "");
     byId("modelo").textContent = p.modelo;
-    byId("informe").textContent = datos.informe.split("\n").slice(2).join("\n");
+    const proveedor = datos.modo_ia === "real" ? "Hugging Face" : "mock";
+    byId("titulo-informe").textContent = `Informe explicativo (${proveedor})`;
+    byId("informe").textContent = datos.informe?.split("\n").slice(2).join("\n") || datos.aviso;
     byId("resultado").hidden = false;
-    byId("estado").textContent = "Predicción recibida de la API.";
+    byId("estado").textContent = datos.aviso || "Predicción recibida de la API.";
   } catch (error) {
     byId("estado").textContent = error.message;
   } finally {

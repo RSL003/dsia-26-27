@@ -7,7 +7,7 @@ import sqlite3
 from flask import Flask, jsonify, render_template
 from pandas.errors import DatabaseError
 
-from .ai_client import generar_informe
+from .ai_client import InformeError, generar_informe
 from .exceptions import AireError
 from .predict import cargar_candidato, predecir
 
@@ -20,6 +20,9 @@ def create_app(database=None, modelos=None):
     app.logger.setLevel(os.getenv("LOG_LEVEL", "INFO").upper())
     database = Path(database or os.getenv("AIRE_DATABASE", BASE / "datos/aire_meteo.sqlite"))
     modelos = Path(modelos or os.getenv("AIRE_MODELS", BASE / "modelos"))
+    modo_ia = os.getenv("AIRE_AI_MODE", "mock")
+    if modo_ia not in ("mock", "real"):
+        raise ValueError("AIRE_AI_MODE debe ser mock o real")
 
     @app.get("/")
     def dashboard():
@@ -50,6 +53,12 @@ def create_app(database=None, modelos=None):
             app.logger.warning("No se pudo predecir: %s", exc)
             return jsonify(error="No se pudo predecir con la base y el modelo configurados."), 503
         app.logger.info("Modelo %s, objetivo %s", resultado["modelo"], resultado["objetivo_utc"])
-        return jsonify(prediccion=resultado, informe=generar_informe(resultado, "mock"), modo_ia="mock")
+        try:
+            informe = generar_informe(resultado, modo_ia)
+        except InformeError as exc:
+            app.logger.warning("Informe no disponible: %s", exc)
+            return jsonify(prediccion=resultado, informe=None, modo_ia=modo_ia,
+                           aviso="Predicción disponible. No se pudo generar el informe con Hugging Face.")
+        return jsonify(prediccion=resultado, informe=informe, modo_ia=modo_ia)
 
     return app

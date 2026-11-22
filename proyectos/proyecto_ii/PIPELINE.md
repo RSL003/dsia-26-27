@@ -83,7 +83,7 @@ de leer informes de una ejecución anterior.
    la IA explica estadísticas, evaluación y predicción. Mock identificable y proveedor
    real documentado/preparado según el enunciado.
 8. **API y web en el III.** El dashboard llama a `POST /predict` para ejecutar
-   la inferencia del Proyecto II y presentar el informe en modo mock.
+   la inferencia del Proyecto II y presentar el informe mock o el de Hugging Face.
    Logs, configuración, errores y tests acompañan todas las etapas.
 
 ## Estado y orden de construcción
@@ -97,7 +97,8 @@ de leer informes de una ejecución anterior.
   y genera `resultados/inferencia/prediccion.json` desde SQLite. La prueba de
   integración cubre los contratos base y con meteorología.
 - **Posprocesamiento:** la misma ejecución guarda `informe.md` con el modo mock
-  o el proveedor configurado. Si falla el proveedor, se conserva la predicción.
+  o con `chat_completion` de Hugging Face. Si falla el proveedor, se conserva
+  la predicción.
 - **Entrega reproducible:** el [README](README.md#reproducir-la-entrega)
   permite reconstruir la serie del estudio y reentrenar sin red. CI comprueba
   ese recorrido en modo mock.

@@ -1,8 +1,8 @@
 """Ejecuta la CLI con SQLite y un modelo sklearn persistido."""
 from contextlib import closing
-from io import BytesIO
 import json
 import sqlite3
+from types import SimpleNamespace
 
 import joblib
 import numpy as np
@@ -18,6 +18,7 @@ from aire_app.web import create_app
 
 @pytest.mark.parametrize("meteorologia", [False, True])
 def test_cli_inferencia_sin_objetivo_futuro(tmp_path, meteorologia, capsys, monkeypatch):
+    monkeypatch.setenv("AIRE_AI_MODE", "mock")
     database = tmp_path / "aire.sqlite"
     modelos = tmp_path / "modelos"
     salida = tmp_path / "salida"
@@ -65,27 +66,49 @@ def test_cli_inferencia_sin_objetivo_futuro(tmp_path, meteorologia, capsys, monk
     assert respuesta_web.get_json()["modo_ia"] == "mock"
 
     if meteorologia:
-        monkeypatch.setenv("OPENAI_API_KEY", "clave-de-prueba")
-        monkeypatch.setenv("OPENAI_MODEL", "modelo-de-prueba")
+        monkeypatch.delenv("HF_TOKEN", raising=False)
+        assert main([*argumentos, "--ai-mode", "real"]) == 1
+        assert "Configura HF_TOKEN" in capsys.readouterr().err
+        monkeypatch.setenv("HF_TOKEN", "hf_prueba")
+        monkeypatch.setenv("HF_MODEL", "organizacion/modelo-prueba")
 
-        def respuesta(peticion, timeout):
-            cuerpo = json.loads(peticion.data)
-            assert cuerpo["model"] == "modelo-de-prueba"
-            assert json.loads(cuerpo["messages"][-1]["content"])["valor_predicho"] == pytest.approx(12)
-            return BytesIO(b'{"choices":[{"message":{"content":"Informe de prueba"}}]}')
+        class ClienteHF:
+            def __init__(self, *, model, provider, token, timeout):
+                assert (model, provider, token, timeout) == (
+                    "organizacion/modelo-prueba", "auto", "hf_prueba", 15,
+                )
 
-        monkeypatch.setattr(ai_client, "urlopen", respuesta)
+            def chat_completion(self, mensajes, *, max_tokens):
+                assert max_tokens == 300
+                assert mensajes[0]["role"] == "system"
+                assert json.loads(mensajes[1]["content"]) == resultado
+                mensaje = SimpleNamespace(content="Informe de prueba")
+                return SimpleNamespace(choices=[SimpleNamespace(message=mensaje)])
+
+        monkeypatch.setattr(ai_client, "InferenceClient", ClienteHF)
         assert main([*argumentos, "--ai-mode", "real"]) == 0
-        assert "Informe de prueba" in informe.read_text(encoding="utf-8")
+        texto = informe.read_text(encoding="utf-8")
+        assert "Hugging Face · organizacion/modelo-prueba" in texto
+        assert "Informe de prueba" in texto
+        monkeypatch.setenv("AIRE_AI_MODE", "real")
+        cliente_real = create_app(database, modelos).test_client()
+        assert cliente_real.post("/predict").get_json() == {
+            "modo_ia": "real", "informe": texto, "prediccion": resultado,
+        }
 
-        def fallo(peticion, timeout):
-            raise TimeoutError
+        def fallo(self, mensajes, *, max_tokens):
+            raise ai_client.InferenceTimeoutError("timeout de prueba")
 
-        monkeypatch.setattr(ai_client, "urlopen", fallo)
+        monkeypatch.setattr(ClienteHF, "chat_completion", fallo)
         assert main([*argumentos, "--ai-mode", "real"]) == 1
         assert "La predicción está en" in capsys.readouterr().err
         assert json.loads((salida / "prediccion.json").read_text(encoding="utf-8")) == resultado
         assert "Informe no disponible" in informe.read_text(encoding="utf-8")
+        parcial = cliente_real.post("/predict")
+        assert parcial.status_code == 200
+        assert parcial.get_json()["informe"] is None
+        assert parcial.get_json()["prediccion"] == resultado
+        assert "Hugging Face" in parcial.get_json()["aviso"]
 
     with closing(sqlite3.connect(database)) as con, con:
         con.execute("DELETE FROM aire_enriquecido WHERE substr(timestamp_utc, 12, 2) = '02'")

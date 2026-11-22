@@ -15,7 +15,7 @@ flowchart LR
     C --> F["Inferencia a una hora"]
     E --> F
     F --> G["prediccion.json"]
-    F --> H["Informe IA · mock u OpenAI"]
+    F --> H["Informe IA · mock o Hugging Face"]
 ```
 
 [Esquema de arquitectura y fotografía](PIPELINE.md) ·
@@ -122,23 +122,28 @@ puede ser histórica.
 ## Informe generativo
 
 El modo `mock` genera una explicación local reproducible. Para activar el
-proveedor real, configura `OPENAI_API_KEY` y `OPENAI_MODEL` como variables
-del entorno. El modelo de ejemplo es `gpt-4.1-mini` y la tarea es generación
-de texto con Chat Completions para explicar el resultado en español. La
-configuración está en [`.env.example`](../../.env.example) y la compatibilidad
-del modelo en la [documentación de OpenAI](https://developers.openai.com/api/docs/models/gpt-4.1-mini).
-Si rellenas una copia en `.env` en la raíz, cárgala con `set -a`,
-`. ../../.env` y `set +a` desde esta carpeta en Bash o Zsh.
+proveedor real, configura `HF_TOKEN` con un token que tenga permiso para
+llamar a Inference Providers. Se usa `chat_completion` de Hugging Face
+para explicar en español la predicción y sus métricas de test. El modelo
+por defecto es `Qwen/Qwen3-4B-Instruct-2507`. Puedes seleccionar otro
+modelo conversacional disponible con `HF_MODEL`. [Ficha del modelo](https://huggingface.co/Qwen/Qwen3-4B-Instruct-2507) · [Documentación de Inference Providers](https://huggingface.co/docs/inference-providers/en/tasks/chat-completion)
+
+Copia [`.env.example`](../../.env.example) en `.env` en la raíz del
+repositorio y rellena `HF_TOKEN`. Carga las variables desde la carpeta
+del Proyecto II en Bash o Zsh, o configúralas en el entorno de tu servicio.
 
 ```bash
+set -a
+. ../../.env
+set +a
 python -m aire_app run --database resultados/reproduccion/aire.sqlite --models resultados/reproduccion/modelos --output resultados/reproduccion/inferencia --ai-mode real
 ```
 
-El [cliente de OpenAI](aire_app/ai_client.py) envía la predicción y sus
-métricas del test histórico a `/v1/chat/completions`. La cifra procede
-del estimador sklearn. Si la API falla, la CLI conserva `prediccion.json`,
-registra el error en `informe.md` y termina con un código distinto de cero.
-Pytest cubre la petición y el tratamiento de fallos con respuestas simuladas.
+El estimador sklearn calcula la cifra y el cliente de IA recibe la
+predicción estructurada con las métricas históricas. Si la API falla, la
+CLI conserva `prediccion.json`, registra el error en `informe.md` y termina
+con un código distinto de cero. Pytest cubre la petición y los fallos con
+respuestas simuladas.
 GitHub Actions ejecuta el pipeline completo en modo `mock`.
 El registro del trabajo con IA está en [AI_USAGE.md](AI_USAGE.md).
 
@@ -155,5 +160,8 @@ python -m gunicorn --bind 127.0.0.1:8000 'aire_app.web:create_app()'
 
 Abre el [dashboard local](http://127.0.0.1:8000/). El botón **Ejecutar
 predicción** llama a `POST /predict` y muestra la estimación y el informe
-mock. `GET /health` comprueba la carga del modelo y la existencia de datos.
+mock por defecto. Para que el servidor genere informes con Hugging Face,
+carga `HF_TOKEN` y añade `export AIRE_AI_MODE=real` antes de arrancar Gunicorn.
+Si el proveedor falla, el dashboard muestra la predicción con un aviso.
+`GET /health` comprueba la carga del modelo de NO₂ y la existencia de datos.
 En el III se ampliará este servicio con despliegue y monitorización.
