@@ -41,18 +41,33 @@ informe, comparan los candidatos, cargan el elegido y generan la predicción
 y su explicación.
 
 ```bash
-python -m aire_app.enrich --input datos/reproduccion/aire_plaza_espana.csv --cache datos/reproduccion/era5 --database resultados/reproduccion/aire.sqlite --offline
-python -m aire_app.compare_modelos --database resultados/reproduccion/aire.sqlite --models resultados/reproduccion/modelos --output resultados/reproduccion/comparacion
-python -m aire_app run --database resultados/reproduccion/aire.sqlite --models resultados/reproduccion/modelos --output resultados/reproduccion/inferencia --ai-mode mock
+ejecucion=$(python -m aire_app pipeline)
+cat "$ejecucion/inferencia/informe.md"
 python -m pytest -q
 ```
 
-La primera orden valida y une las fuentes en SQLite. El entrenamiento tarda
-algo más que las demás etapas y registra el progreso. Deja los joblib y
-`metadata.json` en `resultados/reproduccion/modelos/`. En
-`resultados/reproduccion/comparacion/` quedan las métricas por candidato,
-los diagnósticos y las predicciones de test. La inferencia deja
-`prediccion.json` e `informe.md` en `resultados/reproduccion/inferencia/`.
+También puedes ejecutar directamente `python -m aire_app pipeline`. Al terminar
+imprime la ruta absoluta de la ejecución. La variable `ejecucion` guarda esa ruta
+para abrir el informe o arrancar el dashboard en la misma terminal.
+
+### Qué hace el orquestador
+
+La CLI llama a `ejecutar_completo` en [orquestador.py](aire_app/orquestador.py).
+Cada ejecución usa una carpeta propia dentro de `resultados/ejecuciones/`.
+Los mensajes de progreso indican qué etapa se está ejecutando y dónde quedan sus archivos.
+
+| Etapa | Qué hace | Qué puedes comprobar en la carpeta de ejecución |
+| --- | --- | --- |
+| 1. Carga y calidad | Lee el CSV, transforma los 24 bloques diarios en observaciones, aplica las reglas del Proyecto I y calcula los recuentos. | En `calidad/` están `aire_limpio.csv`, `aire_excluido.csv` con los motivos y `resumen.json`. |
+| 2. Unión | Usa esas mismas observaciones válidas para unir aire y meteorología por estación y hora UTC. | `aire.sqlite` contiene la vista `aire_enriquecido`. |
+| 3. Entrenamiento | Construye las variables, compara OLS y bosque con persistencia, elige por MAE de validación y evalúa en test. | `comparacion/evaluacion.json` contiene las métricas. `modelos/metadata.json` identifica el candidato seleccionado. |
+| 4. Predicción e informe | Carga el candidato desde disco, predice el NO₂ de la hora siguiente y entrega la predicción al cliente de informes. | `inferencia/prediccion.json` guarda la cifra y `inferencia/informe.md` contiene la explicación. |
+
+El código de salida es `0` al completar el recorrido. Si una etapa falla, el
+proceso se detiene con código `1` y los logs indican la carpeta en la que revisar
+los archivos ya escritos. Si falla Hugging Face al final, la predicción ya está
+guardada. El informe recoge el motivo y puedes repetir solo la inferencia con
+el comando `run` de la sección [Informe generativo](#informe-generativo).
 
 La serie fija de una estación y su respuesta ERA5 se versionan para que la
 reproducción no dependa de la fecha de descarga. SQLite, resultados y joblib
@@ -79,17 +94,15 @@ La reproducción cubre la serie utilizada para entrenar. Para construir la
 base **completa** y actualizada con todas las estaciones, ejecuta:
 
 ```bash
-python -m aire_app.download_air
-python -m aire_app.enrich
-python -m aire_app.compare_modelos
-python -m aire_app run --ai-mode mock
+ejecucion=$(python -m aire_app pipeline --actualizar)
 ```
 
-Esta variante necesita red. El CSV municipal se actualiza y los resultados
-pueden cambiar. Si ya tienes la copia del Proyecto I, puedes saltarte la
-descarga y pasar `--input ../proyecto_i/datos/internet/aire.csv` a
-`aire_app.enrich`. Las descargas ERA5 se guardan en `datos/meteo_cache/` y
-se pueden reutilizar con `--offline` para el mismo conjunto de consultas.
+Esta variante necesita red. Guarda las descargas en `datos/` dentro de la
+carpeta de la ejecución. La base incluye todas las estaciones disponibles y
+el entrenamiento sigue evaluando NO₂ en Plaza de España. El CSV municipal se
+actualiza y los resultados pueden cambiar. Para construir solo la base con
+una copia local del Proyecto I, usa
+`python -m aire_app.enrich --input ../proyecto_i/datos/internet/aire.csv`.
 Para obtener solo la auditoría de calidad del CSV, ejecuta
 `python -m aire_app --input datos/reproduccion/aire_plaza_espana.csv`.
 
@@ -136,10 +149,11 @@ del Proyecto II en Bash o Zsh, o configúralas en el entorno de tu servicio.
 set -a
 . ../../.env
 set +a
-python -m aire_app run --database resultados/reproduccion/aire.sqlite --models resultados/reproduccion/modelos --output resultados/reproduccion/inferencia --ai-mode real
+python -m aire_app run --database "$ejecucion/aire.sqlite" --models "$ejecucion/modelos" --output "$ejecucion/inferencia" --ai-mode real
 ```
 
-El estimador sklearn calcula la cifra y el cliente de IA recibe la
+Para generar el informe real al final de un entrenamiento nuevo, ejecuta
+`python -m aire_app pipeline --ai-mode real`. El estimador sklearn calcula la cifra y el cliente de IA recibe la
 predicción estructurada con las métricas históricas. Si la API falla, la
 CLI conserva `prediccion.json`, registra el error en `informe.md` y termina
 con un código distinto de cero. Pytest cubre la petición y los fallos con
@@ -153,8 +167,8 @@ La API y el dashboard reutilizan las mismas funciones de inferencia e informe.
 Con los artefactos generados por la reproducción, en macOS, Linux o WSL usa:
 
 ```bash
-export AIRE_DATABASE=resultados/reproduccion/aire.sqlite
-export AIRE_MODELS=resultados/reproduccion/modelos
+export AIRE_DATABASE="$ejecucion/aire.sqlite"
+export AIRE_MODELS="$ejecucion/modelos"
 python -m gunicorn --bind 127.0.0.1:8000 'aire_app.web:create_app()'
 ```
 

@@ -38,6 +38,8 @@ jobs:
       - name: Reproducción del pipeline sin credenciales
         working-directory: proyectos/proyecto_ii
         run: |
-          python -m aire_app.enrich --input datos/reproduccion/aire_plaza_espana.csv --cache datos/reproduccion/era5 --database resultados/reproduccion/aire.sqlite --offline
-          python -m aire_app.compare_modelos --database resultados/reproduccion/aire.sqlite --models resultados/reproduccion/modelos --output resultados/reproduccion/comparacion
-          python -m aire_app run --database resultados/reproduccion/aire.sqlite --models resultados/reproduccion/modelos --output resultados/reproduccion/inferencia --ai-mode mock
+          ejecucion=$(python -m aire_app pipeline)
+          test -s "$ejecucion/calidad/resumen.json"
+          test -s "$ejecucion/comparacion/evaluacion.json"
+          test -s "$ejecucion/inferencia/prediccion.json"
+          test -s "$ejecucion/inferencia/informe.md"

@@ -129,7 +129,7 @@ eliminar picos reales. HAC no elimina la dependencia ni demuestra causalidad.
 
 La [reproducción del README](../README.md#reproducir-la-entrega) genera
 `forest_meteorologia.joblib`, los otros tres candidatos y `metadata.json`
-en `resultados/reproduccion/modelos/`. El artefacto contiene el estimador
+en la subcarpeta `modelos/` de la ejecución. El artefacto contiene el estimador
 reajustado en train+validación y el contrato de variables. El entrenamiento
 comprueba que volver a cargarlo conserva las predicciones.
 

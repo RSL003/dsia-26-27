@@ -15,7 +15,7 @@ URL = (
 )
 
 
-def descargar():
+def descargar(carpeta: Path = Path(__file__).resolve().parents[1] / "datos") -> Path:
     """Guarda CSV y manifiesto solo si la respuesta tiene el encabezado esperado."""
     with urlopen(URL, timeout=60) as respuesta:
         contenido = respuesta.read()
@@ -33,7 +33,6 @@ def descargar():
         filas += 1
     if not filas:
         raise ValueError("El CSV municipal no contiene datos")
-    carpeta = Path(__file__).resolve().parents[1] / "datos"
     carpeta.mkdir(parents=True, exist_ok=True)
     (carpeta / "aire.csv").write_bytes(contenido)
     manifiesto = {
@@ -47,7 +46,8 @@ def descargar():
         "filas_originales": filas,
     }
     (carpeta / "aire.origen.local.json").write_text(json.dumps(manifiesto, indent=2) + "\n", encoding="utf-8")
-    print(f"Guardadas {filas} filas en {carpeta / 'aire.csv'}")
+    logging.info("Guardadas %s filas en %s", filas, carpeta / "aire.csv")
+    return carpeta / "aire.csv"
 
 
 def main() -> int:

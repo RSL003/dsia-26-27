@@ -136,7 +136,7 @@ Mantén la entrega del Proyecto I. Copia y adapta su núcleo al proyecto nuevo, 
 
 Este esquema recoge el diseño inicial. La implementación usa `enrich.py` para
 SQLite, `compare_modelos.py` para entrenar y `orquestador.py` para coordinar
-la inferencia y el informe.
+el recorrido completo desde las fuentes hasta el informe.
 
 ```text
 proyecto_ii/
@@ -152,8 +152,8 @@ proyecto_ii/
 │   ├── train.py          # Entrenamiento, evaluación y persistencia
 │   ├── predict.py        # Carga del modelo e inferencia
 │   ├── ai_client.py      # Cliente mock y proveedor real
-│   ├── pipeline.py       # Coordina la ejecución habitual
-│   └── cli.py            # Subcomandos train y run
+│   ├── orquestador.py    # Coordina la ejecución completa y la inferencia
+│   └── cli.py            # Comandos pipeline, run y auditoría del CSV
 ├── scripts/
 │   └── descargar_datos.py
 ├── datos/
@@ -276,23 +276,23 @@ Guardar `informe.md` identificando si se utilizó mock o proveedor real. Si fall
 
 ### Paso 7. Coordinar y añadir logs
 
-`enrich.py` carga, valida y guarda los datos en SQLite. El comando `run` llama
-a `orquestador.py` para cargar el modelo, preparar la entrada, predecir y guardar
-el resultado y el informe.
+La CLI llama al orquestador. Con `pipeline`, este valida el CSV, exporta la
+auditoría, entrega las mismas observaciones a la unión con ERA5, entrena y evalúa
+los modelos y carga el candidato elegido para generar la predicción y el informe.
+Con `run` puedes repetir la última etapa usando una base y un modelo ya preparados.
 
 Comandos desde `proyectos/proyecto_ii`:
 
 ```bash
-python -m aire_app.enrich --input ../proyecto_i/datos/internet/aire.csv
-python -m aire_app.compare_modelos
-python -m aire_app run --ai-mode mock
-python -m aire_app run --ai-mode real
+ejecucion=$(python -m aire_app pipeline)
+cat "$ejecucion/inferencia/informe.md"
 python -m pytest
 ```
 
 Registrar con `logging` inicio y fin de etapas, recuentos, selección de serie, modelo utilizado, rutas de salida y errores. La automatización mínima será una ejecución completa por CLI; un planificador periódico puede añadirse después si aporta valor.
 
-**Resultado comprobable:** un único comando `run` produce la predicción y el informe con un modelo previamente entrenado.
+La [guía de ejecución](README.md#qué-hace-el-orquestador) indica cómo verificar
+los resultados de cada etapa y activar Hugging Face.
 
 ### Paso 8. Pruebas y documentación de entrega
 

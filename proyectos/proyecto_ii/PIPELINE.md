@@ -99,9 +99,10 @@ de leer informes de una ejecución anterior.
 - **Posprocesamiento:** la misma ejecución guarda `informe.md` con el modo mock
   o con `chat_completion` de Hugging Face. Si falla el proveedor, se conserva
   la predicción.
-- **Entrega reproducible:** el [README](README.md#reproducir-la-entrega)
-  permite reconstruir la serie del estudio y reentrenar sin red. CI comprueba
-  ese recorrido en modo mock.
+- **Ejecución completa:** `python -m aire_app pipeline` coordina la auditoría
+  del CSV, la unión con ERA5, el entrenamiento, la predicción y el informe.
+  CI ejecuta este comando con la serie incluida y el modo mock. El
+  [README](README.md#qué-hace-el-orquestador) describe la salida de cada etapa.
 - **Proyecto III:** prototipo de API y dashboard sobre el mismo núcleo.
   Quedan despliegue y monitorización.
 

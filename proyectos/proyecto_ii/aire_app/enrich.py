@@ -133,6 +133,12 @@ def construir_base(entrada: Path, catalogo: Path, cache: Path, destino: Path,
                    offline: bool = False) -> dict:
     """Descarga/cachea por estación y publica la base solo después de validarla."""
     validos, errores = AireValidator().validar(AireLoader().cargar(entrada))
+    return construir_base_validada(validos, len(errores), entrada, catalogo, cache, destino, offline)
+
+
+def construir_base_validada(validos: pd.DataFrame, excluidas: int, entrada: Path,
+                            catalogo: Path, cache: Path, destino: Path, offline: bool) -> dict:
+    """Une las observaciones ya validadas con ERA5 y publica la base SQLite."""
     aire = preparar_aire(validos)
     tiempos = aire.timestamp_utc.dropna()
     if tiempos.empty:
@@ -193,7 +199,7 @@ def construir_base(entrada: Path, catalogo: Path, cache: Path, destino: Path,
             total, unidos = con.execute("SELECT COUNT(*), SUM(meteo_disponible) FROM aire_enriquecido").fetchone()
             if total != len(aire):
                 raise ValueError("La unión ha alterado el número de observaciones")
-            informe = {"observaciones_aire": total, "aire_excluido_validacion": len(errores),
+            informe = {"observaciones_aire": total, "aire_excluido_validacion": excluidas,
                        "con_fila_meteo": unidos, "sin_fila_meteo": total - unidos,
                        "tiempo_no_resuelto": int(aire.timestamp_utc.isna().sum()),
                        "filas_meteo": len(meteo), "estaciones": len(estaciones),

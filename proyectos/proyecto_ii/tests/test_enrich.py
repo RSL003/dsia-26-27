@@ -1,5 +1,6 @@
 """Uniones temporales y SQLite con respuestas de API simuladas, sin red."""
 import json
+from io import BytesIO
 from pathlib import Path
 import sqlite3
 from urllib.parse import parse_qs, urlparse
@@ -7,7 +8,8 @@ from urllib.parse import parse_qs, urlparse
 import pandas as pd
 import pytest
 
-from aire_app import enrich
+from aire_app import download_air, enrich
+from aire_app.cli import main
 from aire_app.loader import AireLoader
 from aire_app.validator import AireValidator
 
@@ -92,3 +94,19 @@ def test_unidades_y_duplicados_api():
     datos["hourly_units"]["wind_speed_10m"] = "km/h"
     with pytest.raises(ValueError, match="Unidades"):
         enrich.interpretar_meteo(json.dumps(datos).encode(), "28079004")
+
+
+def test_pipeline_actualizado_se_detiene_si_falta_la_serie(tmp_path, monkeypatch, capsys):
+    """La descarga contiene otra estación: quedan los datos auditados, sin predicción antigua."""
+    monkeypatch.setattr(download_air, "urlopen", lambda url, timeout: BytesIO(MUESTRA.read_bytes()))
+    monkeypatch.setattr(enrich, "descargar", respuesta)
+    for _ in range(2):
+        assert main(["pipeline", "--actualizar", "--output", str(tmp_path)]) == 1
+        assert "No hay datos para la estación 28079004" in capsys.readouterr().err
+    ejecuciones = list(tmp_path.iterdir())
+    assert len(ejecuciones) == 2
+    for ejecucion in ejecuciones:
+        assert (ejecucion / "datos/aire.origen.local.json").is_file()
+        assert (ejecucion / "calidad/resumen.json").is_file()
+        assert (ejecucion / "aire.sqlite").is_file()
+        assert not (ejecucion / "inferencia").exists()
