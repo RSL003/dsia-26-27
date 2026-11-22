@@ -1,65 +1,159 @@
-# Proyecto II — Automatización e integración de servicios (20 %)
+# Proyecto II — Predicción horaria de NO₂ en Madrid
 
-**Temas:** 2, 3 y 4  
-**Trabajo continuo:** octubre 2026  
-**Hito de presentación del Trabajo Final (enunciado E2E):** 19 de octubre de 2026
+Este proyecto estima la concentración de **NO₂ (µg/m³) una hora después de la
+última observación** en Plaza de España (estación `28079004`, magnitud `8`).
+Se eligió esta serie por su continuidad y porque permite comparar cuánto
+aportan los datos meteorológicos frente al historial de contaminación. El
+pipeline reutiliza la carga y validación del Proyecto I.
 
-## Relación con el Proyecto III
-
-El Proyecto II **es la base del Proyecto III (Trabajo Final)**.
-
-- Eliges **ya** el dominio, los datos y el problema que llevarás al E2E.
-- El repo, el pipeline, el modelo sklearn, los tests y el cliente de IA de esta entrega **se reutilizan y se amplían** en el Proyecto III (API/app, despliegue, monitorización, RC y exposición).
-- No se parte de cero en noviembre: el III continúa este mismo trabajo.
-
-```text
-Proyecto II (base)                         Proyecto III (ampliación)
-─────────────────                          ────────────────────────
-datos + pipeline + logs               →    + API / app
-modelo sklearn entrenado + inferencia →    + endpoint de predicción (o integrado)
-cliente IA generativa (mock + real)   →    + contrato /analyze (o equivalente)
-pytest + .env.example                 →    + CI + robustez
-README / AI_USAGE                     →    + despliegue + monitorización + exposición
+```mermaid
+flowchart LR
+    A["CSV horario de Madrid"] --> C["Validación y unión en SQLite"]
+    B["Meteorología ERA5"] --> C
+    C --> D["Entrenamiento y evaluación temporal"]
+    D --> E["Modelo sklearn y metadatos"]
+    C --> F["Inferencia a una hora"]
+    E --> F
+    F --> G["prediccion.json"]
+    F --> H["Informe IA · mock u OpenAI"]
 ```
 
-## Objetivo
+[Esquema de arquitectura y fotografía](PIPELINE.md) ·
+[Detalle del modelado](MODELADO.md) ·
+[Informe de evaluación y diagnósticos](docs/RESULTADOS_MODELOS.md) ·
+[Enunciado del curso](https://github.com/RSL003/dsia-26-27/blob/608dc3ffaf185474fe0f29a165bd49823aa804d0/proyectos/proyecto_ii/README.md)
 
-Automatizar un proceso de datos que combine:
+## Reproducir la entrega
 
-1. un **modelo clásico de scikit-learn** entrenado e integrado en el pipeline, y  
-2. al menos un **servicio de IA generativa vía API**,
+Desde la raíz del repositorio, con Python 3.12 recomendado, ejecuta:
 
-con pruebas y buenas prácticas de entornos, **dejando el código listo para crecer hacia el E2E**.
+```bash
+cd proyectos/proyecto_ii
+python -m venv .venv
+source .venv/bin/activate
+python -m pip install -r requirements.txt
+```
 
-## Requisitos mínimos
+En Windows se puede activar el entorno con `.venv\Scripts\Activate.ps1`
+desde PowerShell. Una vez instaladas las dependencias, estos comandos
+funcionan sin red ni credenciales. Reconstruyen la serie utilizada en el
+informe, comparan los candidatos, cargan el elegido y generan la predicción
+y su explicación.
 
-1. **Elección de dominio y datos para tu Proyecto III** (documentada en el README: origen, licencia, motivación).
-2. Pipeline reproducible (CLI o job) con logs.
-3. **Entrenamiento de un modelo scikit-learn** (clasificación, regresión o similar) adecuado al dataset:
-   - script o módulo de entrenamiento reproducible (`train` / equivalente);
-   - persistencia del modelo (`joblib` / `pickle` u otro formato documentado);
-   - **inferencia integrada en el pipeline** (no solo un notebook suelto);
-   - métricas de evaluación básicas reportadas en README o informe generado (p. ej. accuracy, F1, RMSE…).
-4. Tests pytest (unitarios + al menos un test de integración o marcado), incluyendo al menos un test que cubra la **carga/inferencia del modelo** (puede usar un fixture o modelo pequeño).
-5. Cliente de IA generativa con modo `mock` y un proveedor real documentado (si no hay clave, mock + diseño listo).
-6. `.env.example` y `requirements.txt` (incluye `scikit-learn`).
-7. Sección `AI_USAGE.md` citando herramientas de IA usadas en el desarrollo.
-8. Estructura modular que permita añadir después API y despliegue **sin reescribir** el núcleo.
+```bash
+python -m aire_app.enrich --input datos/reproduccion/aire_plaza_espana.csv --cache datos/reproduccion/era5 --database resultados/reproduccion/aire.sqlite --offline
+python -m aire_app.compare_modelos --database resultados/reproduccion/aire.sqlite --models resultados/reproduccion/modelos --output resultados/reproduccion/comparacion
+python -m aire_app run --database resultados/reproduccion/aire.sqlite --models resultados/reproduccion/modelos --output resultados/reproduccion/inferencia --ai-mode mock
+python -m pytest -q
+```
 
-## Entrega
+La primera orden valida y une las fuentes en SQLite. El entrenamiento tarda
+algo más que las demás etapas y registra el progreso. Deja los joblib y
+`metadata.json` en `resultados/reproduccion/modelos/`. En
+`resultados/reproduccion/comparacion/` quedan las métricas por candidato,
+los diagnósticos y las predicciones de test. La inferencia deja
+`prediccion.json` e `informe.md` en `resultados/reproduccion/inferencia/`.
 
-- Repo GitHub **del Trabajo Final** (el mismo que usarás en el Proyecto III).
-- Historial de commits a lo largo de octubre.
-- Artefactos del modelo versionados con criterio (modelo entrenado y/o instrucciones claras para reentrenar).
-- README que deje claro: datos → entrenamiento sklearn → pipeline con inferencia → IA generativa, y **qué se ampliará** en el III.
+La serie fija de una estación y su respuesta ERA5 se versionan para que la
+reproducción no dependa de la fecha de descarga. SQLite, resultados y joblib
+se reconstruyen localmente. Carga únicamente modelos joblib de confianza,
+como los generados por este entrenamiento.
 
-## Rúbrica orientativa
+## Datos y unión
 
-| Criterio | Peso |
-| --- | --- |
-| Pipeline y automatización | 20 % |
-| Modelo sklearn (entrenamiento + integración) | 20 % |
-| Integración API / IA generativa | 20 % |
-| Tests y calidad | 15 % |
-| Robustez (errores, logs, config) | 10 % |
-| Documentación, citación IA y continuidad hacia el III | 15 % |
+| Fuente | Datos usados | Licencia y procedencia |
+| --- | --- | --- |
+| [Ayuntamiento de Madrid, calidad del aire](https://datos.madrid.es/dataset/201200-0-calidad-aire-horario/information) | NO₂ horario, del 1 de enero de 2025 al 31 de agosto de 2026 | CC BY 4.0. Descarga del 11 de octubre de 2026. La [ficha de la serie incluida](datos/reproduccion/aire.origen.json) identifica la copia original, el filtro y las huellas SHA-256. |
+| [Ayuntamiento de Madrid, catálogo de estaciones](https://datos.madrid.es/dataset/212629-0-estaciones-control-aire/information) | Código, nombre y coordenadas de cada estación | CC BY 4.0. Se incluye el [catálogo](datos/estaciones.csv). |
+| [Open-Meteo Historical Weather API](https://open-meteo.com/en/docs/historical-weather-api) | ERA5 horario de Copernicus/ECMWF. Temperatura, humedad, viento y precipitación | CC BY 4.0. La [ficha ERA5](datos/reproduccion/era5/28079004_e495b2c952d58bf9.meta.json) incluye consulta, fecha de descarga y huella SHA-256. |
+
+El validador exige fecha válida, identificadores, estado `V` y valores finitos
+no negativos. Descarta todas las apariciones de una clave horaria duplicada.
+La ingesta etiqueta cada bloque municipal con su final en hora de Madrid y
+lo convierte a UTC. H24 termina a medianoche del día siguiente. Los intervalos
+ambiguos o inexistentes durante el cambio de hora conservan su observación,
+con tiempo UTC nulo. La vista `aire_enriquecido` une por estación y fin de
+bloque UTC y conserva el aire aunque falte meteorología.
+
+La reproducción cubre la serie utilizada para entrenar. Para construir la
+base **completa** y actualizada con todas las estaciones, ejecuta:
+
+```bash
+python -m aire_app.download_air
+python -m aire_app.enrich
+python -m aire_app.compare_modelos
+python -m aire_app run --ai-mode mock
+```
+
+Esta variante necesita red. El CSV municipal se actualiza y los resultados
+pueden cambiar. Si ya tienes la copia del Proyecto I, puedes saltarte la
+descarga y pasar `--input ../proyecto_i/datos/internet/aire.csv` a
+`aire_app.enrich`. Las descargas ERA5 se guardan en `datos/meteo_cache/` y
+se pueden reutilizar con `--offline` para el mismo conjunto de consultas.
+Para obtener solo la auditoría de calidad del CSV, ejecuta
+`python -m aire_app --input datos/reproduccion/aire_plaza_espana.csv`.
+
+## Entrenamiento y resultados
+
+Se comparan OLS y Random Forest con **7 entradas** de historial y calendario
+y con **13 entradas** al añadir meteorología del instante de origen. La
+referencia es persistencia, que predice el último valor observado. Todos los
+candidatos se comparan sobre las mismas filas. Entrenamiento usa 2025,
+validación enero–abril de 2026 y test mayo–agosto de 2026, con un bloque
+omitido en cada frontera. La elección usa el MAE de validación y el test
+queda reservado para evaluar las configuraciones ya elegidas.
+
+| Candidato | MAE validación | MAE test | RMSE test | R² test |
+| --- | ---: | ---: | ---: | ---: |
+| Persistencia | 3,803 | 3,683 | 5,997 | 0,767 |
+| OLS base | 3,440 | 3,614 | 5,432 | 0,809 |
+| OLS con ERA5 | 3,384 | 3,510 | 5,347 | 0,815 |
+| Random Forest base | 3,168 | **3,194** | 5,169 | 0,827 |
+| Random Forest con ERA5 | **3,102** | 3,218 | **5,155** | **0,828** |
+
+MAE y RMSE se expresan en µg/m³. El bosque con ERA5 gana por validación y
+reduce el MAE en test un **12,62 %** frente a persistencia. El bosque base
+obtiene un MAE de test ligeramente menor. En OLS aparece multicolinealidad
+entre los retardos y su media móvil. En ambos bosques y OLS conviene leer
+los resultados junto a los diagnósticos de residuos y los límites del
+estudio. ERA5 es un reanálisis retrospectivo y la última hora de la base
+puede ser histórica.
+
+## Informe generativo
+
+El modo `mock` genera una explicación local reproducible. Para activar el
+proveedor real, configura `OPENAI_API_KEY` y `OPENAI_MODEL` como variables
+del entorno. El modelo de ejemplo es `gpt-4.1-mini` y la tarea es generación
+de texto con Chat Completions para explicar el resultado en español. La
+configuración está en [`.env.example`](../../.env.example) y la compatibilidad
+del modelo en la [documentación de OpenAI](https://developers.openai.com/api/docs/models/gpt-4.1-mini).
+Si rellenas una copia en `.env` en la raíz, cárgala con `set -a`,
+`. ../../.env` y `set +a` desde esta carpeta en Bash o Zsh.
+
+```bash
+python -m aire_app run --database resultados/reproduccion/aire.sqlite --models resultados/reproduccion/modelos --output resultados/reproduccion/inferencia --ai-mode real
+```
+
+El [cliente de OpenAI](aire_app/ai_client.py) envía la predicción y sus
+métricas del test histórico a `/v1/chat/completions`. La cifra procede
+del estimador sklearn. Si la API falla, la CLI conserva `prediccion.json`,
+registra el error en `informe.md` y termina con un código distinto de cero.
+Pytest cubre la petición y el tratamiento de fallos con respuestas simuladas.
+GitHub Actions ejecuta el pipeline completo en modo `mock`.
+El registro del trabajo con IA está en [AI_USAGE.md](AI_USAGE.md).
+
+## Arrancar el Proyecto III
+
+La API y el dashboard reutilizan las mismas funciones de inferencia e informe.
+Con los artefactos generados por la reproducción, en macOS, Linux o WSL usa:
+
+```bash
+export AIRE_DATABASE=resultados/reproduccion/aire.sqlite
+export AIRE_MODELS=resultados/reproduccion/modelos
+python -m gunicorn --bind 127.0.0.1:8000 'aire_app.web:create_app()'
+```
+
+Abre el [dashboard local](http://127.0.0.1:8000/). El botón **Ejecutar
+predicción** llama a `POST /predict` y muestra la estimación y el informe
+mock. `GET /health` comprueba la carga del modelo y la existencia de datos.
+En el III se ampliará este servicio con despliegue y monitorización.
