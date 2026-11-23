@@ -1,0 +1,8 @@
+{
+  "url": "https://archive-api.open-meteo.com/v1/archive?latitude=40.4238823&longitude=-3.7122567&start_date=2025-01-01&end_date=2026-08-31&hourly=temperature_2m%2Crelative_humidity_2m%2Cwind_speed_10m%2Cwind_direction_10m%2Cprecipitation&models=era5&timezone=GMT&timeformat=unixtime&wind_speed_unit=ms&temperature_unit=celsius&precipitation_unit=mm",
+  "descarga_utc": "2026-10-26T19:37:51.832503+00:00",
+  "sha256": "e0f0af594e404fcc24b457db7785c8ac0ada801f1e0f3a0ba1b8e2b2ffe5a645",
+  "proveedor": "Open-Meteo / ERA5",
+  "licencia": "CC BY 4.0",
+  "estacion_id": "28079004"
+}

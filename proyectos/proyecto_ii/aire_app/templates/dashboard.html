@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Calidad del aire de Madrid</title>
+  <style>
+    :root { color-scheme: light; font-family: system-ui, sans-serif; color: #172e2a; background: #edf4ef; }
+    body { margin: 0; }
+    main { max-width: 700px; margin: auto; padding: 3rem 1.25rem; }
+    h1 { font-family: Georgia, serif; font-size: clamp(2.2rem, 7vw, 4rem); line-height: 1.05; margin: .35em 0; }
+    p { line-height: 1.55; }
+    button { font: inherit; background: #154e40; color: white; border: 0; border-radius: .4rem; padding: .8rem 1.2rem; cursor: pointer; }
+    button:disabled { opacity: .65; cursor: progress; }
+    article { background: white; padding: 1.5rem; border-radius: .6rem; margin-top: 1.5rem; }
+    output { font-size: 2.5rem; font-weight: 650; display: block; }
+    dl { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 1rem; }
+    dt { color: #465f57; }
+    dd { margin: .3rem 0 0; overflow-wrap: anywhere; }
+    #informe { white-space: pre-line; }
+  </style>
+  <script defer src="{{ url_for('static', filename='dashboard.js') }}"></script>
+</head>
+<body>
+  <main>
+    <p>Madrid · Calidad del aire</p>
+    <h1>Predicción a una hora</h1>
+    <p>Demostración retrospectiva sobre el último bloque disponible en la base local.</p>
+    <button id="predecir" type="button">Ejecutar predicción</button>
+    <p id="estado" role="status"></p>
+    <article id="resultado" hidden>
+      <h2 id="serie"></h2>
+      <output id="prediccion" aria-label="Concentración estimada"></output>
+      <dl>
+        <div><dt>Última observación</dt><dd id="observado"></dd></div>
+        <div><dt>Hora objetivo (UTC)</dt><dd id="objetivo"></dd></div>
+        <div><dt>Modelo</dt><dd id="modelo"></dd></div>
+      </dl>
+      <details><summary id="titulo-informe">Informe explicativo</summary><p id="informe"></p></details>
+    </article>
+  </main>
+</body>
+</html>

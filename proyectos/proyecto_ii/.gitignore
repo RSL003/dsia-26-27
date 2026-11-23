@@ -1,0 +1,8 @@
+datos/aire.csv
+datos/aire.origen.local.json
+resultados/
+datos/meteo_cache/
+datos/*.sqlite*
+datos/*.resumen.json
+modelos/*.joblib
+modelos/metadata.json

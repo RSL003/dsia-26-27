@@ -2,7 +2,7 @@ name: dsia-ci
 
 on:
   push:
-    branches: [main]
+    branches: [main, 'codex/**']
   pull_request:
 
 jobs:
@@ -23,3 +23,23 @@ jobs:
       - name: API template tests (tema 5)
         working-directory: 5_desarrollo_end_to_end/plantilla_proyecto
         run: pytest -q
+  proyecto-ii:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Tests del Proyecto II
+        working-directory: proyectos/proyecto_ii
+        run: |
+          python -m pip install -r requirements.txt
+          python -m pytest -q
+      - name: Reproducción del pipeline sin credenciales
+        working-directory: proyectos/proyecto_ii
+        run: |
+          ejecucion=$(python -m aire_app pipeline)
+          test -s "$ejecucion/calidad/resumen.json"
+          test -s "$ejecucion/comparacion/evaluacion.json"
+          test -s "$ejecucion/inferencia/prediccion.json"
+          test -s "$ejecucion/inferencia/informe.md"

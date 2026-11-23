@@ -1,0 +1,23 @@
+{
+  "filtro": {
+    "estacion_id": "28079004",
+    "magnitud": "8"
+  },
+  "periodo_local": [
+    "2025-01-01",
+    "2026-08-31"
+  ],
+  "filas": 608,
+  "archivo": "aire_plaza_espana.csv",
+  "sha256": "6fe57e6810c85c9418529d9bf003c63bca684a5dfa7b5925af3f36636302c82d",
+  "original": {
+    "url": "https://datos.madrid.es/dataset/201200-0-calidad-aire-horario/resource/201200-1-calidad-aire-horario-csv/download/201200-1-calidad-aire-horario-csv.csv",
+    "descarga_utc": "2026-10-11T11:43:47.868403+00:00",
+    "sha256": "9122af41d3e73e71f5a0e0a22b99a0cefbd4c7f8abe9e2fae344207482398471",
+    "licencia": "CC BY 4.0",
+    "fuente": "Ayuntamiento de Madrid",
+    "dataset": "Calidad del aire. Datos horarios desde 2001. Desde 2025",
+    "actualizacion": "Mensual",
+    "filas_originales": 76513
+  }
+}

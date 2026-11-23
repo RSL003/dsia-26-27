@@ -1,0 +1,2482 @@
+{
+  "filas_originales": 76513,
+  "observaciones_horarias": 1836312,
+  "observaciones_utilizables": 1795279,
+  "observaciones_excluidas": 41033,
+  "porcentaje_utilizables": 97.77,
+  "estaciones_con_datos": 23,
+  "estados_excluidos": {
+    "N": 41030,
+    "M": 3
+  },
+  "por_estacion_y_magnitud": [
+    {
+      "ESTACION": "11",
+      "MAGNITUD": "12",
+      "count": 14412,
+      "mean": 30.893,
+      "max": 832.0
+    },
+    {
+      "ESTACION": "11",
+      "MAGNITUD": "20",
+      "count": 13453,
+      "mean": 1.659,
+      "max": 32.8
+    },
+    {
+      "ESTACION": "11",
+      "MAGNITUD": "30",
+      "count": 13427,
+      "mean": 0.3,
+      "max": 6.8
+    },
+    {
+      "ESTACION": "11",
+      "MAGNITUD": "35",
+      "count": 13466,
+      "mean": 0.374,
+      "max": 22.4
+    },
+    {
+      "ESTACION": "11",
+      "MAGNITUD": "7",
+      "count": 14412,
+      "mean": 5.269,
+      "max": 441.0
+    },
+    {
+      "ESTACION": "11",
+      "MAGNITUD": "8",
+      "count": 14412,
+      "mean": 22.779,
+      "max": 157.0
+    },
+    {
+      "ESTACION": "16",
+      "MAGNITUD": "12",
+      "count": 14434,
+      "mean": 26.88,
+      "max": 393.0
+    },
+    {
+      "ESTACION": "16",
+      "MAGNITUD": "14",
+      "count": 14380,
+      "mean": 61.976,
+      "max": 183.0
+    },
+    {
+      "ESTACION": "16",
+      "MAGNITUD": "7",
+      "count": 14434,
+      "mean": 3.577,
+      "max": 212.0
+    },
+    {
+      "ESTACION": "16",
+      "MAGNITUD": "8",
+      "count": 14434,
+      "mean": 21.363,
+      "max": 121.0
+    },
+    {
+      "ESTACION": "17",
+      "MAGNITUD": "12",
+      "count": 14395,
+      "mean": 43.743,
+      "max": 655.0
+    },
+    {
+      "ESTACION": "17",
+      "MAGNITUD": "14",
+      "count": 14403,
+      "mean": 58.221,
+      "max": 169.0
+    },
+    {
+      "ESTACION": "17",
+      "MAGNITUD": "7",
+      "count": 14395,
+      "mean": 12.455,
+      "max": 355.0
+    },
+    {
+      "ESTACION": "17",
+      "MAGNITUD": "8",
+      "count": 14395,
+      "mean": 24.656,
+      "max": 146.0
+    },
+    {
+      "ESTACION": "18",
+      "MAGNITUD": "10",
+      "count": 14066,
+      "mean": 22.729,
+      "max": 190.0
+    },
+    {
+      "ESTACION": "18",
+      "MAGNITUD": "12",
+      "count": 14401,
+      "mean": 29.164,
+      "max": 337.0
+    },
+    {
+      "ESTACION": "18",
+      "MAGNITUD": "14",
+      "count": 14380,
+      "mean": 61.029,
+      "max": 169.0
+    },
+    {
+      "ESTACION": "18",
+      "MAGNITUD": "20",
+      "count": 13863,
+      "mean": 2.013,
+      "max": 36.4
+    },
+    {
+      "ESTACION": "18",
+      "MAGNITUD": "30",
+      "count": 13873,
+      "mean": 0.341,
+      "max": 5.6
+    },
+    {
+      "ESTACION": "18",
+      "MAGNITUD": "35",
+      "count": 13934,
+      "mean": 0.324,
+      "max": 7.8
+    },
+    {
+      "ESTACION": "18",
+      "MAGNITUD": "7",
+      "count": 14400,
+      "mean": 4.6,
+      "max": 158.0
+    },
+    {
+      "ESTACION": "18",
+      "MAGNITUD": "8",
+      "count": 14400,
+      "mean": 22.073,
+      "max": 125.0
+    },
+    {
+      "ESTACION": "24",
+      "MAGNITUD": "10",
+      "count": 14080,
+      "mean": 16.345,
+      "max": 271.0
+    },
+    {
+      "ESTACION": "24",
+      "MAGNITUD": "12",
+      "count": 14168,
+      "mean": 15.297,
+      "max": 183.0
+    },
+    {
+      "ESTACION": "24",
+      "MAGNITUD": "14",
+      "count": 14090,
+      "mean": 70.109,
+      "max": 180.0
+    },
+    {
+      "ESTACION": "24",
+      "MAGNITUD": "7",
+      "count": 14168,
+      "mean": 1.708,
+      "max": 73.0
+    },
+    {
+      "ESTACION": "24",
+      "MAGNITUD": "8",
+      "count": 14186,
+      "mean": 12.737,
+      "max": 125.0
+    },
+    {
+      "ESTACION": "24",
+      "MAGNITUD": "9",
+      "count": 14077,
+      "mean": 8.624,
+      "max": 240.0
+    },
+    {
+      "ESTACION": "27",
+      "MAGNITUD": "12",
+      "count": 14317,
+      "mean": 39.373,
+      "max": 519.0
+    },
+    {
+      "ESTACION": "27",
+      "MAGNITUD": "14",
+      "count": 14357,
+      "mean": 57.829,
+      "max": 192.0
+    },
+    {
+      "ESTACION": "27",
+      "MAGNITUD": "7",
+      "count": 14317,
+      "mean": 7.746,
+      "max": 248.0
+    },
+    {
+      "ESTACION": "27",
+      "MAGNITUD": "8",
+      "count": 14317,
+      "mean": 27.502,
+      "max": 143.0
+    },
+    {
+      "ESTACION": "35",
+      "MAGNITUD": "1",
+      "count": 14284,
+      "mean": 4.273,
+      "max": 10.0
+    },
+    {
+      "ESTACION": "35",
+      "MAGNITUD": "12",
+      "count": 14347,
+      "mean": 30.761,
+      "max": 418.0
+    },
+    {
+      "ESTACION": "35",
+      "MAGNITUD": "14",
+      "count": 14317,
+      "mean": 64.461,
+      "max": 175.0
+    },
+    {
+      "ESTACION": "35",
+      "MAGNITUD": "6",
+      "count": 14322,
+      "mean": 0.324,
+      "max": 1.9
+    },
+    {
+      "ESTACION": "35",
+      "MAGNITUD": "7",
+      "count": 14347,
+      "mean": 5.572,
+      "max": 217.0
+    },
+    {
+      "ESTACION": "35",
+      "MAGNITUD": "8",
+      "count": 14347,
+      "mean": 22.208,
+      "max": 120.0
+    },
+    {
+      "ESTACION": "36",
+      "MAGNITUD": "1",
+      "count": 14379,
+      "mean": 3.566,
+      "max": 14.0
+    },
+    {
+      "ESTACION": "36",
+      "MAGNITUD": "10",
+      "count": 13995,
+      "mean": 19.627,
+      "max": 172.0
+    },
+    {
+      "ESTACION": "36",
+      "MAGNITUD": "12",
+      "count": 14407,
+      "mean": 28.094,
+      "max": 634.0
+    },
+    {
+      "ESTACION": "36",
+      "MAGNITUD": "7",
+      "count": 14407,
+      "mean": 4.464,
+      "max": 337.0
+    },
+    {
+      "ESTACION": "36",
+      "MAGNITUD": "8",
+      "count": 14407,
+      "mean": 21.23,
+      "max": 117.0
+    },
+    {
+      "ESTACION": "38",
+      "MAGNITUD": "10",
+      "count": 13913,
+      "mean": 17.797,
+      "max": 201.0
+    },
+    {
+      "ESTACION": "38",
+      "MAGNITUD": "12",
+      "count": 14364,
+      "mean": 30.311,
+      "max": 898.0
+    },
+    {
+      "ESTACION": "38",
+      "MAGNITUD": "20",
+      "count": 13892,
+      "mean": 2.123,
+      "max": 38.2
+    },
+    {
+      "ESTACION": "38",
+      "MAGNITUD": "30",
+      "count": 13921,
+      "mean": 0.411,
+      "max": 8.3
+    },
+    {
+      "ESTACION": "38",
+      "MAGNITUD": "35",
+      "count": 13895,
+      "mean": 0.26,
+      "max": 5.5
+    },
+    {
+      "ESTACION": "38",
+      "MAGNITUD": "7",
+      "count": 14364,
+      "mean": 5.702,
+      "max": 487.0
+    },
+    {
+      "ESTACION": "38",
+      "MAGNITUD": "8",
+      "count": 14364,
+      "mean": 21.536,
+      "max": 152.0
+    },
+    {
+      "ESTACION": "38",
+      "MAGNITUD": "9",
+      "count": 13908,
+      "mean": 8.618,
+      "max": 178.0
+    },
+    {
+      "ESTACION": "39",
+      "MAGNITUD": "12",
+      "count": 14402,
+      "mean": 29.855,
+      "max": 781.0
+    },
+    {
+      "ESTACION": "39",
+      "MAGNITUD": "14",
+      "count": 14405,
+      "mean": 64.049,
+      "max": 189.0
+    },
+    {
+      "ESTACION": "39",
+      "MAGNITUD": "7",
+      "count": 14402,
+      "mean": 5.536,
+      "max": 427.0
+    },
+    {
+      "ESTACION": "39",
+      "MAGNITUD": "8",
+      "count": 14402,
+      "mean": 21.32,
+      "max": 151.0
+    },
+    {
+      "ESTACION": "4",
+      "MAGNITUD": "10",
+      "count": 13691,
+      "mean": 22.383,
+      "max": 287.0
+    },
+    {
+      "ESTACION": "4",
+      "MAGNITUD": "12",
+      "count": 14451,
+      "mean": 32.708,
+      "max": 535.0
+    },
+    {
+      "ESTACION": "4",
+      "MAGNITUD": "6",
+      "count": 14429,
+      "mean": 0.252,
+      "max": 2.0
+    },
+    {
+      "ESTACION": "4",
+      "MAGNITUD": "7",
+      "count": 14451,
+      "mean": 6.576,
+      "max": 257.0
+    },
+    {
+      "ESTACION": "4",
+      "MAGNITUD": "8",
+      "count": 14451,
+      "mean": 22.622,
+      "max": 141.0
+    },
+    {
+      "ESTACION": "4",
+      "MAGNITUD": "9",
+      "count": 13670,
+      "mean": 9.012,
+      "max": 248.0
+    },
+    {
+      "ESTACION": "40",
+      "MAGNITUD": "10",
+      "count": 14198,
+      "mean": 20.702,
+      "max": 143.0
+    },
+    {
+      "ESTACION": "40",
+      "MAGNITUD": "12",
+      "count": 14413,
+      "mean": 30.474,
+      "max": 529.0
+    },
+    {
+      "ESTACION": "40",
+      "MAGNITUD": "7",
+      "count": 14413,
+      "mean": 5.244,
+      "max": 275.0
+    },
+    {
+      "ESTACION": "40",
+      "MAGNITUD": "8",
+      "count": 14413,
+      "mean": 22.432,
+      "max": 127.0
+    },
+    {
+      "ESTACION": "47",
+      "MAGNITUD": "10",
+      "count": 14111,
+      "mean": 17.757,
+      "max": 172.0
+    },
+    {
+      "ESTACION": "47",
+      "MAGNITUD": "12",
+      "count": 14405,
+      "mean": 27.773,
+      "max": 383.0
+    },
+    {
+      "ESTACION": "47",
+      "MAGNITUD": "7",
+      "count": 14405,
+      "mean": 4.762,
+      "max": 179.0
+    },
+    {
+      "ESTACION": "47",
+      "MAGNITUD": "8",
+      "count": 14405,
+      "mean": 20.436,
+      "max": 137.0
+    },
+    {
+      "ESTACION": "47",
+      "MAGNITUD": "9",
+      "count": 14103,
+      "mean": 9.328,
+      "max": 113.0
+    },
+    {
+      "ESTACION": "48",
+      "MAGNITUD": "10",
+      "count": 13696,
+      "mean": 20.146,
+      "max": 188.0
+    },
+    {
+      "ESTACION": "48",
+      "MAGNITUD": "12",
+      "count": 14429,
+      "mean": 22.332,
+      "max": 436.0
+    },
+    {
+      "ESTACION": "48",
+      "MAGNITUD": "7",
+      "count": 14429,
+      "mean": 2.725,
+      "max": 225.0
+    },
+    {
+      "ESTACION": "48",
+      "MAGNITUD": "8",
+      "count": 14429,
+      "mean": 18.108,
+      "max": 122.0
+    },
+    {
+      "ESTACION": "48",
+      "MAGNITUD": "9",
+      "count": 13696,
+      "mean": 9.647,
+      "max": 148.0
+    },
+    {
+      "ESTACION": "49",
+      "MAGNITUD": "12",
+      "count": 14363,
+      "mean": 20.366,
+      "max": 458.0
+    },
+    {
+      "ESTACION": "49",
+      "MAGNITUD": "14",
+      "count": 14357,
+      "mean": 62.579,
+      "max": 180.0
+    },
+    {
+      "ESTACION": "49",
+      "MAGNITUD": "7",
+      "count": 14363,
+      "mean": 2.342,
+      "max": 246.0
+    },
+    {
+      "ESTACION": "49",
+      "MAGNITUD": "8",
+      "count": 14363,
+      "mean": 16.67,
+      "max": 96.0
+    },
+    {
+      "ESTACION": "50",
+      "MAGNITUD": "10",
+      "count": 14010,
+      "mean": 18.957,
+      "max": 181.0
+    },
+    {
+      "ESTACION": "50",
+      "MAGNITUD": "12",
+      "count": 14368,
+      "mean": 29.419,
+      "max": 524.0
+    },
+    {
+      "ESTACION": "50",
+      "MAGNITUD": "7",
+      "count": 14368,
+      "mean": 5.711,
+      "max": 274.0
+    },
+    {
+      "ESTACION": "50",
+      "MAGNITUD": "8",
+      "count": 14368,
+      "mean": 20.636,
+      "max": 137.0
+    },
+    {
+      "ESTACION": "50",
+      "MAGNITUD": "9",
+      "count": 13989,
+      "mean": 9.17,
+      "max": 153.0
+    },
+    {
+      "ESTACION": "54",
+      "MAGNITUD": "10",
+      "count": 13873,
+      "mean": 21.442,
+      "max": 191.0
+    },
+    {
+      "ESTACION": "54",
+      "MAGNITUD": "12",
+      "count": 14418,
+      "mean": 35.008,
+      "max": 672.0
+    },
+    {
+      "ESTACION": "54",
+      "MAGNITUD": "14",
+      "count": 14401,
+      "mean": 62.933,
+      "max": 185.0
+    },
+    {
+      "ESTACION": "54",
+      "MAGNITUD": "7",
+      "count": 14418,
+      "mean": 7.036,
+      "max": 365.0
+    },
+    {
+      "ESTACION": "54",
+      "MAGNITUD": "8",
+      "count": 14418,
+      "mean": 24.19,
+      "max": 148.0
+    },
+    {
+      "ESTACION": "54",
+      "MAGNITUD": "9",
+      "count": 13978,
+      "mean": 9.473,
+      "max": 91.0
+    },
+    {
+      "ESTACION": "56",
+      "MAGNITUD": "10",
+      "count": 13912,
+      "mean": 21.355,
+      "max": 157.0
+    },
+    {
+      "ESTACION": "56",
+      "MAGNITUD": "12",
+      "count": 14298,
+      "mean": 50.027,
+      "max": 535.0
+    },
+    {
+      "ESTACION": "56",
+      "MAGNITUD": "6",
+      "count": 14326,
+      "mean": 0.241,
+      "max": 2.0
+    },
+    {
+      "ESTACION": "56",
+      "MAGNITUD": "7",
+      "count": 14298,
+      "mean": 12.826,
+      "max": 299.0
+    },
+    {
+      "ESTACION": "56",
+      "MAGNITUD": "8",
+      "count": 14298,
+      "mean": 30.36,
+      "max": 161.0
+    },
+    {
+      "ESTACION": "56",
+      "MAGNITUD": "9",
+      "count": 13898,
+      "mean": 11.792,
+      "max": 126.0
+    },
+    {
+      "ESTACION": "57",
+      "MAGNITUD": "10",
+      "count": 14245,
+      "mean": 16.752,
+      "max": 182.0
+    },
+    {
+      "ESTACION": "57",
+      "MAGNITUD": "12",
+      "count": 14433,
+      "mean": 23.022,
+      "max": 478.0
+    },
+    {
+      "ESTACION": "57",
+      "MAGNITUD": "7",
+      "count": 14433,
+      "mean": 3.997,
+      "max": 239.0
+    },
+    {
+      "ESTACION": "57",
+      "MAGNITUD": "8",
+      "count": 14433,
+      "mean": 16.855,
+      "max": 122.0
+    },
+    {
+      "ESTACION": "57",
+      "MAGNITUD": "9",
+      "count": 14245,
+      "mean": 9.275,
+      "max": 157.0
+    },
+    {
+      "ESTACION": "58",
+      "MAGNITUD": "12",
+      "count": 14334,
+      "mean": 11.483,
+      "max": 119.0
+    },
+    {
+      "ESTACION": "58",
+      "MAGNITUD": "14",
+      "count": 14347,
+      "mean": 64.04,
+      "max": 196.0
+    },
+    {
+      "ESTACION": "58",
+      "MAGNITUD": "7",
+      "count": 14334,
+      "mean": 1.494,
+      "max": 56.0
+    },
+    {
+      "ESTACION": "58",
+      "MAGNITUD": "8",
+      "count": 14334,
+      "mean": 9.125,
+      "max": 69.0
+    },
+    {
+      "ESTACION": "59",
+      "MAGNITUD": "12",
+      "count": 14422,
+      "mean": 24.389,
+      "max": 400.0
+    },
+    {
+      "ESTACION": "59",
+      "MAGNITUD": "14",
+      "count": 14425,
+      "mean": 66.338,
+      "max": 196.0
+    },
+    {
+      "ESTACION": "59",
+      "MAGNITUD": "7",
+      "count": 14422,
+      "mean": 3.782,
+      "max": 185.0
+    },
+    {
+      "ESTACION": "59",
+      "MAGNITUD": "8",
+      "count": 14422,
+      "mean": 18.53,
+      "max": 129.0
+    },
+    {
+      "ESTACION": "60",
+      "MAGNITUD": "10",
+      "count": 14369,
+      "mean": 16.49,
+      "max": 267.0
+    },
+    {
+      "ESTACION": "60",
+      "MAGNITUD": "12",
+      "count": 14416,
+      "mean": 22.121,
+      "max": 341.0
+    },
+    {
+      "ESTACION": "60",
+      "MAGNITUD": "14",
+      "count": 14412,
+      "mean": 68.839,
+      "max": 183.0
+    },
+    {
+      "ESTACION": "60",
+      "MAGNITUD": "7",
+      "count": 14416,
+      "mean": 3.229,
+      "max": 162.0
+    },
+    {
+      "ESTACION": "60",
+      "MAGNITUD": "8",
+      "count": 14416,
+      "mean": 17.13,
+      "max": 103.0
+    },
+    {
+      "ESTACION": "60",
+      "MAGNITUD": "9",
+      "count": 14369,
+      "mean": 7.726,
+      "max": 242.0
+    },
+    {
+      "ESTACION": "8",
+      "MAGNITUD": "1",
+      "count": 13942,
+      "mean": 2.094,
+      "max": 14.0
+    },
+    {
+      "ESTACION": "8",
+      "MAGNITUD": "10",
+      "count": 14224,
+      "mean": 21.116,
+      "max": 155.0
+    },
+    {
+      "ESTACION": "8",
+      "MAGNITUD": "12",
+      "count": 14310,
+      "mean": 29.654,
+      "max": 486.0
+    },
+    {
+      "ESTACION": "8",
+      "MAGNITUD": "14",
+      "count": 14351,
+      "mean": 61.902,
+      "max": 175.0
+    },
+    {
+      "ESTACION": "8",
+      "MAGNITUD": "20",
+      "count": 14085,
+      "mean": 2.649,
+      "max": 41.2
+    },
+    {
+      "ESTACION": "8",
+      "MAGNITUD": "30",
+      "count": 14086,
+      "mean": 0.441,
+      "max": 4.2
+    },
+    {
+      "ESTACION": "8",
+      "MAGNITUD": "35",
+      "count": 14083,
+      "mean": 0.538,
+      "max": 7.6
+    },
+    {
+      "ESTACION": "8",
+      "MAGNITUD": "6",
+      "count": 14328,
+      "mean": 0.309,
+      "max": 2.1
+    },
+    {
+      "ESTACION": "8",
+      "MAGNITUD": "7",
+      "count": 14310,
+      "mean": 4.143,
+      "max": 253.0
+    },
+    {
+      "ESTACION": "8",
+      "MAGNITUD": "8",
+      "count": 14305,
+      "mean": 23.268,
+      "max": 118.0
+    },
+    {
+      "ESTACION": "8",
+      "MAGNITUD": "9",
+      "count": 14218,
+      "mean": 9.091,
+      "max": 100.0
+    }
+  ],
+  "por_magnitud_y_hora": [
+    {
+      "MAGNITUD": "1",
+      "hora": "H01",
+      "count": 1801,
+      "mean": 3.255
+    },
+    {
+      "MAGNITUD": "1",
+      "hora": "H02",
+      "count": 1800,
+      "mean": 3.206
+    },
+    {
+      "MAGNITUD": "1",
+      "hora": "H03",
+      "count": 1795,
+      "mean": 3.156
+    },
+    {
+      "MAGNITUD": "1",
+      "hora": "H04",
+      "count": 1801,
+      "mean": 3.118
+    },
+    {
+      "MAGNITUD": "1",
+      "hora": "H05",
+      "count": 1799,
+      "mean": 3.11
+    },
+    {
+      "MAGNITUD": "1",
+      "hora": "H06",
+      "count": 1800,
+      "mean": 3.124
+    },
+    {
+      "MAGNITUD": "1",
+      "hora": "H07",
+      "count": 1798,
+      "mean": 3.163
+    },
+    {
+      "MAGNITUD": "1",
+      "hora": "H08",
+      "count": 1792,
+      "mean": 3.287
+    },
+    {
+      "MAGNITUD": "1",
+      "hora": "H09",
+      "count": 1766,
+      "mean": 3.429
+    },
+    {
+      "MAGNITUD": "1",
+      "hora": "H10",
+      "count": 1716,
+      "mean": 3.491
+    },
+    {
+      "MAGNITUD": "1",
+      "hora": "H11",
+      "count": 1703,
+      "mean": 3.47
+    },
+    {
+      "MAGNITUD": "1",
+      "hora": "H12",
+      "count": 1691,
+      "mean": 3.503
+    },
+    {
+      "MAGNITUD": "1",
+      "hora": "H13",
+      "count": 1705,
+      "mean": 3.472
+    },
+    {
+      "MAGNITUD": "1",
+      "hora": "H14",
+      "count": 1722,
+      "mean": 3.445
+    },
+    {
+      "MAGNITUD": "1",
+      "hora": "H15",
+      "count": 1751,
+      "mean": 3.379
+    },
+    {
+      "MAGNITUD": "1",
+      "hora": "H16",
+      "count": 1777,
+      "mean": 3.346
+    },
+    {
+      "MAGNITUD": "1",
+      "hora": "H17",
+      "count": 1791,
+      "mean": 3.307
+    },
+    {
+      "MAGNITUD": "1",
+      "hora": "H18",
+      "count": 1798,
+      "mean": 3.313
+    },
+    {
+      "MAGNITUD": "1",
+      "hora": "H19",
+      "count": 1800,
+      "mean": 3.332
+    },
+    {
+      "MAGNITUD": "1",
+      "hora": "H20",
+      "count": 1800,
+      "mean": 3.372
+    },
+    {
+      "MAGNITUD": "1",
+      "hora": "H21",
+      "count": 1800,
+      "mean": 3.398
+    },
+    {
+      "MAGNITUD": "1",
+      "hora": "H22",
+      "count": 1802,
+      "mean": 3.396
+    },
+    {
+      "MAGNITUD": "1",
+      "hora": "H23",
+      "count": 1800,
+      "mean": 3.366
+    },
+    {
+      "MAGNITUD": "1",
+      "hora": "H24",
+      "count": 1797,
+      "mean": 3.32
+    },
+    {
+      "MAGNITUD": "10",
+      "hora": "H01",
+      "count": 8317,
+      "mean": 19.738
+    },
+    {
+      "MAGNITUD": "10",
+      "hora": "H02",
+      "count": 8296,
+      "mean": 18.538
+    },
+    {
+      "MAGNITUD": "10",
+      "hora": "H03",
+      "count": 8292,
+      "mean": 17.38
+    },
+    {
+      "MAGNITUD": "10",
+      "hora": "H04",
+      "count": 8311,
+      "mean": 16.386
+    },
+    {
+      "MAGNITUD": "10",
+      "hora": "H05",
+      "count": 8326,
+      "mean": 15.731
+    },
+    {
+      "MAGNITUD": "10",
+      "hora": "H06",
+      "count": 8326,
+      "mean": 15.292
+    },
+    {
+      "MAGNITUD": "10",
+      "hora": "H07",
+      "count": 8331,
+      "mean": 15.593
+    },
+    {
+      "MAGNITUD": "10",
+      "hora": "H08",
+      "count": 8266,
+      "mean": 17.216
+    },
+    {
+      "MAGNITUD": "10",
+      "hora": "H09",
+      "count": 8128,
+      "mean": 20.42
+    },
+    {
+      "MAGNITUD": "10",
+      "hora": "H10",
+      "count": 7939,
+      "mean": 22.97
+    },
+    {
+      "MAGNITUD": "10",
+      "hora": "H11",
+      "count": 7999,
+      "mean": 23.305
+    },
+    {
+      "MAGNITUD": "10",
+      "hora": "H12",
+      "count": 8003,
+      "mean": 22.654
+    },
+    {
+      "MAGNITUD": "10",
+      "hora": "H13",
+      "count": 7979,
+      "mean": 22.519
+    },
+    {
+      "MAGNITUD": "10",
+      "hora": "H14",
+      "count": 7999,
+      "mean": 22.317
+    },
+    {
+      "MAGNITUD": "10",
+      "hora": "H15",
+      "count": 8028,
+      "mean": 20.825
+    },
+    {
+      "MAGNITUD": "10",
+      "hora": "H16",
+      "count": 8093,
+      "mean": 19.731
+    },
+    {
+      "MAGNITUD": "10",
+      "hora": "H17",
+      "count": 8118,
+      "mean": 19.348
+    },
+    {
+      "MAGNITUD": "10",
+      "hora": "H18",
+      "count": 8173,
+      "mean": 18.769
+    },
+    {
+      "MAGNITUD": "10",
+      "hora": "H19",
+      "count": 8213,
+      "mean": 18.752
+    },
+    {
+      "MAGNITUD": "10",
+      "hora": "H20",
+      "count": 8229,
+      "mean": 19.104
+    },
+    {
+      "MAGNITUD": "10",
+      "hora": "H21",
+      "count": 8231,
+      "mean": 19.991
+    },
+    {
+      "MAGNITUD": "10",
+      "hora": "H22",
+      "count": 8255,
+      "mean": 20.92
+    },
+    {
+      "MAGNITUD": "10",
+      "hora": "H23",
+      "count": 8260,
+      "mean": 21.169
+    },
+    {
+      "MAGNITUD": "10",
+      "hora": "H24",
+      "count": 8271,
+      "mean": 20.726
+    },
+    {
+      "MAGNITUD": "12",
+      "hora": "H01",
+      "count": 13891,
+      "mean": 31.625
+    },
+    {
+      "MAGNITUD": "12",
+      "hora": "H02",
+      "count": 13898,
+      "mean": 26.598
+    },
+    {
+      "MAGNITUD": "12",
+      "hora": "H03",
+      "count": 13879,
+      "mean": 21.886
+    },
+    {
+      "MAGNITUD": "12",
+      "hora": "H04",
+      "count": 13932,
+      "mean": 18.332
+    },
+    {
+      "MAGNITUD": "12",
+      "hora": "H05",
+      "count": 13937,
+      "mean": 16.402
+    },
+    {
+      "MAGNITUD": "12",
+      "hora": "H06",
+      "count": 13932,
+      "mean": 16.878
+    },
+    {
+      "MAGNITUD": "12",
+      "hora": "H07",
+      "count": 13920,
+      "mean": 23.521
+    },
+    {
+      "MAGNITUD": "12",
+      "hora": "H08",
+      "count": 13851,
+      "mean": 38.366
+    },
+    {
+      "MAGNITUD": "12",
+      "hora": "H09",
+      "count": 13617,
+      "mean": 49.522
+    },
+    {
+      "MAGNITUD": "12",
+      "hora": "H10",
+      "count": 13350,
+      "mean": 46.693
+    },
+    {
+      "MAGNITUD": "12",
+      "hora": "H11",
+      "count": 13341,
+      "mean": 37.826
+    },
+    {
+      "MAGNITUD": "12",
+      "hora": "H12",
+      "count": 13399,
+      "mean": 31.871
+    },
+    {
+      "MAGNITUD": "12",
+      "hora": "H13",
+      "count": 13431,
+      "mean": 27.416
+    },
+    {
+      "MAGNITUD": "12",
+      "hora": "H14",
+      "count": 13512,
+      "mean": 23.476
+    },
+    {
+      "MAGNITUD": "12",
+      "hora": "H15",
+      "count": 13666,
+      "mean": 19.905
+    },
+    {
+      "MAGNITUD": "12",
+      "hora": "H16",
+      "count": 13828,
+      "mean": 17.431
+    },
+    {
+      "MAGNITUD": "12",
+      "hora": "H17",
+      "count": 13890,
+      "mean": 17.366
+    },
+    {
+      "MAGNITUD": "12",
+      "hora": "H18",
+      "count": 13908,
+      "mean": 19.562
+    },
+    {
+      "MAGNITUD": "12",
+      "hora": "H19",
+      "count": 13915,
+      "mean": 24.341
+    },
+    {
+      "MAGNITUD": "12",
+      "hora": "H20",
+      "count": 13921,
+      "mean": 30.799
+    },
+    {
+      "MAGNITUD": "12",
+      "hora": "H21",
+      "count": 13919,
+      "mean": 36.432
+    },
+    {
+      "MAGNITUD": "12",
+      "hora": "H22",
+      "count": 13923,
+      "mean": 40.381
+    },
+    {
+      "MAGNITUD": "12",
+      "hora": "H23",
+      "count": 13935,
+      "mean": 40.309
+    },
+    {
+      "MAGNITUD": "12",
+      "hora": "H24",
+      "count": 13912,
+      "mean": 36.351
+    },
+    {
+      "MAGNITUD": "14",
+      "hora": "H01",
+      "count": 7862,
+      "mean": 52.762
+    },
+    {
+      "MAGNITUD": "14",
+      "hora": "H02",
+      "count": 7850,
+      "mean": 52.502
+    },
+    {
+      "MAGNITUD": "14",
+      "hora": "H03",
+      "count": 7839,
+      "mean": 52.738
+    },
+    {
+      "MAGNITUD": "14",
+      "hora": "H04",
+      "count": 7863,
+      "mean": 52.928
+    },
+    {
+      "MAGNITUD": "14",
+      "hora": "H05",
+      "count": 7868,
+      "mean": 51.943
+    },
+    {
+      "MAGNITUD": "14",
+      "hora": "H06",
+      "count": 7867,
+      "mean": 49.777
+    },
+    {
+      "MAGNITUD": "14",
+      "hora": "H07",
+      "count": 7867,
+      "mean": 44.72
+    },
+    {
+      "MAGNITUD": "14",
+      "hora": "H08",
+      "count": 7828,
+      "mean": 37.174
+    },
+    {
+      "MAGNITUD": "14",
+      "hora": "H09",
+      "count": 7684,
+      "mean": 36.35
+    },
+    {
+      "MAGNITUD": "14",
+      "hora": "H10",
+      "count": 7503,
+      "mean": 44.372
+    },
+    {
+      "MAGNITUD": "14",
+      "hora": "H11",
+      "count": 7487,
+      "mean": 55.827
+    },
+    {
+      "MAGNITUD": "14",
+      "hora": "H12",
+      "count": 7518,
+      "mean": 66.9
+    },
+    {
+      "MAGNITUD": "14",
+      "hora": "H13",
+      "count": 7551,
+      "mean": 76.504
+    },
+    {
+      "MAGNITUD": "14",
+      "hora": "H14",
+      "count": 7626,
+      "mean": 84.458
+    },
+    {
+      "MAGNITUD": "14",
+      "hora": "H15",
+      "count": 7710,
+      "mean": 89.734
+    },
+    {
+      "MAGNITUD": "14",
+      "hora": "H16",
+      "count": 7810,
+      "mean": 92.024
+    },
+    {
+      "MAGNITUD": "14",
+      "hora": "H17",
+      "count": 7848,
+      "mean": 91.471
+    },
+    {
+      "MAGNITUD": "14",
+      "hora": "H18",
+      "count": 7860,
+      "mean": 88.451
+    },
+    {
+      "MAGNITUD": "14",
+      "hora": "H19",
+      "count": 7864,
+      "mean": 83.238
+    },
+    {
+      "MAGNITUD": "14",
+      "hora": "H20",
+      "count": 7866,
+      "mean": 76.825
+    },
+    {
+      "MAGNITUD": "14",
+      "hora": "H21",
+      "count": 7865,
+      "mean": 69.786
+    },
+    {
+      "MAGNITUD": "14",
+      "hora": "H22",
+      "count": 7864,
+      "mean": 61.501
+    },
+    {
+      "MAGNITUD": "14",
+      "hora": "H23",
+      "count": 7868,
+      "mean": 55.722
+    },
+    {
+      "MAGNITUD": "14",
+      "hora": "H24",
+      "count": 7857,
+      "mean": 53.948
+    },
+    {
+      "MAGNITUD": "20",
+      "hora": "H01",
+      "count": 2348,
+      "mean": 2.454
+    },
+    {
+      "MAGNITUD": "20",
+      "hora": "H02",
+      "count": 2339,
+      "mean": 2.273
+    },
+    {
+      "MAGNITUD": "20",
+      "hora": "H03",
+      "count": 2333,
+      "mean": 2.106
+    },
+    {
+      "MAGNITUD": "20",
+      "hora": "H04",
+      "count": 2341,
+      "mean": 1.957
+    },
+    {
+      "MAGNITUD": "20",
+      "hora": "H05",
+      "count": 2338,
+      "mean": 1.916
+    },
+    {
+      "MAGNITUD": "20",
+      "hora": "H06",
+      "count": 2345,
+      "mean": 1.849
+    },
+    {
+      "MAGNITUD": "20",
+      "hora": "H07",
+      "count": 2348,
+      "mean": 1.749
+    },
+    {
+      "MAGNITUD": "20",
+      "hora": "H08",
+      "count": 2334,
+      "mean": 1.946
+    },
+    {
+      "MAGNITUD": "20",
+      "hora": "H09",
+      "count": 2278,
+      "mean": 2.49
+    },
+    {
+      "MAGNITUD": "20",
+      "hora": "H10",
+      "count": 2182,
+      "mean": 3.016
+    },
+    {
+      "MAGNITUD": "20",
+      "hora": "H11",
+      "count": 2172,
+      "mean": 2.812
+    },
+    {
+      "MAGNITUD": "20",
+      "hora": "H12",
+      "count": 2180,
+      "mean": 2.472
+    },
+    {
+      "MAGNITUD": "20",
+      "hora": "H13",
+      "count": 2199,
+      "mean": 2.289
+    },
+    {
+      "MAGNITUD": "20",
+      "hora": "H14",
+      "count": 2228,
+      "mean": 2.091
+    },
+    {
+      "MAGNITUD": "20",
+      "hora": "H15",
+      "count": 2267,
+      "mean": 1.882
+    },
+    {
+      "MAGNITUD": "20",
+      "hora": "H16",
+      "count": 2297,
+      "mean": 1.557
+    },
+    {
+      "MAGNITUD": "20",
+      "hora": "H17",
+      "count": 2324,
+      "mean": 1.447
+    },
+    {
+      "MAGNITUD": "20",
+      "hora": "H18",
+      "count": 2343,
+      "mean": 1.518
+    },
+    {
+      "MAGNITUD": "20",
+      "hora": "H19",
+      "count": 2347,
+      "mean": 1.637
+    },
+    {
+      "MAGNITUD": "20",
+      "hora": "H20",
+      "count": 2351,
+      "mean": 1.86
+    },
+    {
+      "MAGNITUD": "20",
+      "hora": "H21",
+      "count": 2350,
+      "mean": 2.169
+    },
+    {
+      "MAGNITUD": "20",
+      "hora": "H22",
+      "count": 2350,
+      "mean": 2.386
+    },
+    {
+      "MAGNITUD": "20",
+      "hora": "H23",
+      "count": 2353,
+      "mean": 2.505
+    },
+    {
+      "MAGNITUD": "20",
+      "hora": "H24",
+      "count": 2346,
+      "mean": 2.541
+    },
+    {
+      "MAGNITUD": "30",
+      "hora": "H01",
+      "count": 2347,
+      "mean": 0.456
+    },
+    {
+      "MAGNITUD": "30",
+      "hora": "H02",
+      "count": 2338,
+      "mean": 0.374
+    },
+    {
+      "MAGNITUD": "30",
+      "hora": "H03",
+      "count": 2334,
+      "mean": 0.313
+    },
+    {
+      "MAGNITUD": "30",
+      "hora": "H04",
+      "count": 2340,
+      "mean": 0.273
+    },
+    {
+      "MAGNITUD": "30",
+      "hora": "H05",
+      "count": 2339,
+      "mean": 0.246
+    },
+    {
+      "MAGNITUD": "30",
+      "hora": "H06",
+      "count": 2344,
+      "mean": 0.239
+    },
+    {
+      "MAGNITUD": "30",
+      "hora": "H07",
+      "count": 2347,
+      "mean": 0.253
+    },
+    {
+      "MAGNITUD": "30",
+      "hora": "H08",
+      "count": 2334,
+      "mean": 0.34
+    },
+    {
+      "MAGNITUD": "30",
+      "hora": "H09",
+      "count": 2277,
+      "mean": 0.474
+    },
+    {
+      "MAGNITUD": "30",
+      "hora": "H10",
+      "count": 2183,
+      "mean": 0.534
+    },
+    {
+      "MAGNITUD": "30",
+      "hora": "H11",
+      "count": 2171,
+      "mean": 0.458
+    },
+    {
+      "MAGNITUD": "30",
+      "hora": "H12",
+      "count": 2181,
+      "mean": 0.396
+    },
+    {
+      "MAGNITUD": "30",
+      "hora": "H13",
+      "count": 2201,
+      "mean": 0.367
+    },
+    {
+      "MAGNITUD": "30",
+      "hora": "H14",
+      "count": 2230,
+      "mean": 0.348
+    },
+    {
+      "MAGNITUD": "30",
+      "hora": "H15",
+      "count": 2270,
+      "mean": 0.333
+    },
+    {
+      "MAGNITUD": "30",
+      "hora": "H16",
+      "count": 2296,
+      "mean": 0.304
+    },
+    {
+      "MAGNITUD": "30",
+      "hora": "H17",
+      "count": 2324,
+      "mean": 0.279
+    },
+    {
+      "MAGNITUD": "30",
+      "hora": "H18",
+      "count": 2343,
+      "mean": 0.29
+    },
+    {
+      "MAGNITUD": "30",
+      "hora": "H19",
+      "count": 2347,
+      "mean": 0.32
+    },
+    {
+      "MAGNITUD": "30",
+      "hora": "H20",
+      "count": 2353,
+      "mean": 0.387
+    },
+    {
+      "MAGNITUD": "30",
+      "hora": "H21",
+      "count": 2355,
+      "mean": 0.462
+    },
+    {
+      "MAGNITUD": "30",
+      "hora": "H22",
+      "count": 2353,
+      "mean": 0.52
+    },
+    {
+      "MAGNITUD": "30",
+      "hora": "H23",
+      "count": 2354,
+      "mean": 0.528
+    },
+    {
+      "MAGNITUD": "30",
+      "hora": "H24",
+      "count": 2346,
+      "mean": 0.505
+    },
+    {
+      "MAGNITUD": "35",
+      "hora": "H01",
+      "count": 2350,
+      "mean": 0.466
+    },
+    {
+      "MAGNITUD": "35",
+      "hora": "H02",
+      "count": 2341,
+      "mean": 0.391
+    },
+    {
+      "MAGNITUD": "35",
+      "hora": "H03",
+      "count": 2337,
+      "mean": 0.34
+    },
+    {
+      "MAGNITUD": "35",
+      "hora": "H04",
+      "count": 2345,
+      "mean": 0.304
+    },
+    {
+      "MAGNITUD": "35",
+      "hora": "H05",
+      "count": 2343,
+      "mean": 0.274
+    },
+    {
+      "MAGNITUD": "35",
+      "hora": "H06",
+      "count": 2349,
+      "mean": 0.263
+    },
+    {
+      "MAGNITUD": "35",
+      "hora": "H07",
+      "count": 2353,
+      "mean": 0.261
+    },
+    {
+      "MAGNITUD": "35",
+      "hora": "H08",
+      "count": 2341,
+      "mean": 0.308
+    },
+    {
+      "MAGNITUD": "35",
+      "hora": "H09",
+      "count": 2283,
+      "mean": 0.41
+    },
+    {
+      "MAGNITUD": "35",
+      "hora": "H10",
+      "count": 2189,
+      "mean": 0.504
+    },
+    {
+      "MAGNITUD": "35",
+      "hora": "H11",
+      "count": 2177,
+      "mean": 0.488
+    },
+    {
+      "MAGNITUD": "35",
+      "hora": "H12",
+      "count": 2186,
+      "mean": 0.438
+    },
+    {
+      "MAGNITUD": "35",
+      "hora": "H13",
+      "count": 2206,
+      "mean": 0.404
+    },
+    {
+      "MAGNITUD": "35",
+      "hora": "H14",
+      "count": 2233,
+      "mean": 0.381
+    },
+    {
+      "MAGNITUD": "35",
+      "hora": "H15",
+      "count": 2272,
+      "mean": 0.355
+    },
+    {
+      "MAGNITUD": "35",
+      "hora": "H16",
+      "count": 2298,
+      "mean": 0.31
+    },
+    {
+      "MAGNITUD": "35",
+      "hora": "H17",
+      "count": 2325,
+      "mean": 0.284
+    },
+    {
+      "MAGNITUD": "35",
+      "hora": "H18",
+      "count": 2343,
+      "mean": 0.294
+    },
+    {
+      "MAGNITUD": "35",
+      "hora": "H19",
+      "count": 2346,
+      "mean": 0.305
+    },
+    {
+      "MAGNITUD": "35",
+      "hora": "H20",
+      "count": 2353,
+      "mean": 0.351
+    },
+    {
+      "MAGNITUD": "35",
+      "hora": "H21",
+      "count": 2354,
+      "mean": 0.416
+    },
+    {
+      "MAGNITUD": "35",
+      "hora": "H22",
+      "count": 2352,
+      "mean": 0.466
+    },
+    {
+      "MAGNITUD": "35",
+      "hora": "H23",
+      "count": 2354,
+      "mean": 0.498
+    },
+    {
+      "MAGNITUD": "35",
+      "hora": "H24",
+      "count": 2348,
+      "mean": 0.498
+    },
+    {
+      "MAGNITUD": "6",
+      "hora": "H01",
+      "count": 2424,
+      "mean": 0.31
+    },
+    {
+      "MAGNITUD": "6",
+      "hora": "H02",
+      "count": 2422,
+      "mean": 0.277
+    },
+    {
+      "MAGNITUD": "6",
+      "hora": "H03",
+      "count": 2417,
+      "mean": 0.252
+    },
+    {
+      "MAGNITUD": "6",
+      "hora": "H04",
+      "count": 2424,
+      "mean": 0.233
+    },
+    {
+      "MAGNITUD": "6",
+      "hora": "H05",
+      "count": 2425,
+      "mean": 0.222
+    },
+    {
+      "MAGNITUD": "6",
+      "hora": "H06",
+      "count": 2416,
+      "mean": 0.223
+    },
+    {
+      "MAGNITUD": "6",
+      "hora": "H07",
+      "count": 2427,
+      "mean": 0.247
+    },
+    {
+      "MAGNITUD": "6",
+      "hora": "H08",
+      "count": 2395,
+      "mean": 0.292
+    },
+    {
+      "MAGNITUD": "6",
+      "hora": "H09",
+      "count": 2347,
+      "mean": 0.336
+    },
+    {
+      "MAGNITUD": "6",
+      "hora": "H10",
+      "count": 2287,
+      "mean": 0.33
+    },
+    {
+      "MAGNITUD": "6",
+      "hora": "H11",
+      "count": 2301,
+      "mean": 0.3
+    },
+    {
+      "MAGNITUD": "6",
+      "hora": "H12",
+      "count": 2313,
+      "mean": 0.28
+    },
+    {
+      "MAGNITUD": "6",
+      "hora": "H13",
+      "count": 2333,
+      "mean": 0.268
+    },
+    {
+      "MAGNITUD": "6",
+      "hora": "H14",
+      "count": 2350,
+      "mean": 0.256
+    },
+    {
+      "MAGNITUD": "6",
+      "hora": "H15",
+      "count": 2374,
+      "mean": 0.248
+    },
+    {
+      "MAGNITUD": "6",
+      "hora": "H16",
+      "count": 2401,
+      "mean": 0.236
+    },
+    {
+      "MAGNITUD": "6",
+      "hora": "H17",
+      "count": 2413,
+      "mean": 0.233
+    },
+    {
+      "MAGNITUD": "6",
+      "hora": "H18",
+      "count": 2420,
+      "mean": 0.241
+    },
+    {
+      "MAGNITUD": "6",
+      "hora": "H19",
+      "count": 2417,
+      "mean": 0.27
+    },
+    {
+      "MAGNITUD": "6",
+      "hora": "H20",
+      "count": 2418,
+      "mean": 0.302
+    },
+    {
+      "MAGNITUD": "6",
+      "hora": "H21",
+      "count": 2421,
+      "mean": 0.338
+    },
+    {
+      "MAGNITUD": "6",
+      "hora": "H22",
+      "count": 2421,
+      "mean": 0.361
+    },
+    {
+      "MAGNITUD": "6",
+      "hora": "H23",
+      "count": 2421,
+      "mean": 0.36
+    },
+    {
+      "MAGNITUD": "6",
+      "hora": "H24",
+      "count": 2418,
+      "mean": 0.34
+    },
+    {
+      "MAGNITUD": "7",
+      "hora": "H01",
+      "count": 13891,
+      "mean": 4.854
+    },
+    {
+      "MAGNITUD": "7",
+      "hora": "H02",
+      "count": 13898,
+      "mean": 3.692
+    },
+    {
+      "MAGNITUD": "7",
+      "hora": "H03",
+      "count": 13879,
+      "mean": 2.761
+    },
+    {
+      "MAGNITUD": "7",
+      "hora": "H04",
+      "count": 13932,
+      "mean": 2.115
+    },
+    {
+      "MAGNITUD": "7",
+      "hora": "H05",
+      "count": 13937,
+      "mean": 1.707
+    },
+    {
+      "MAGNITUD": "7",
+      "hora": "H06",
+      "count": 13932,
+      "mean": 1.797
+    },
+    {
+      "MAGNITUD": "7",
+      "hora": "H07",
+      "count": 13920,
+      "mean": 3.249
+    },
+    {
+      "MAGNITUD": "7",
+      "hora": "H08",
+      "count": 13851,
+      "mean": 7.448
+    },
+    {
+      "MAGNITUD": "7",
+      "hora": "H09",
+      "count": 13617,
+      "mean": 12.333
+    },
+    {
+      "MAGNITUD": "7",
+      "hora": "H10",
+      "count": 13350,
+      "mean": 12.243
+    },
+    {
+      "MAGNITUD": "7",
+      "hora": "H11",
+      "count": 13341,
+      "mean": 9.187
+    },
+    {
+      "MAGNITUD": "7",
+      "hora": "H12",
+      "count": 13398,
+      "mean": 7.211
+    },
+    {
+      "MAGNITUD": "7",
+      "hora": "H13",
+      "count": 13431,
+      "mean": 5.764
+    },
+    {
+      "MAGNITUD": "7",
+      "hora": "H14",
+      "count": 13512,
+      "mean": 4.583
+    },
+    {
+      "MAGNITUD": "7",
+      "hora": "H15",
+      "count": 13666,
+      "mean": 3.627
+    },
+    {
+      "MAGNITUD": "7",
+      "hora": "H16",
+      "count": 13828,
+      "mean": 2.9
+    },
+    {
+      "MAGNITUD": "7",
+      "hora": "H17",
+      "count": 13890,
+      "mean": 2.719
+    },
+    {
+      "MAGNITUD": "7",
+      "hora": "H18",
+      "count": 13908,
+      "mean": 2.852
+    },
+    {
+      "MAGNITUD": "7",
+      "hora": "H19",
+      "count": 13915,
+      "mean": 3.719
+    },
+    {
+      "MAGNITUD": "7",
+      "hora": "H20",
+      "count": 13921,
+      "mean": 5.323
+    },
+    {
+      "MAGNITUD": "7",
+      "hora": "H21",
+      "count": 13919,
+      "mean": 6.659
+    },
+    {
+      "MAGNITUD": "7",
+      "hora": "H22",
+      "count": 13923,
+      "mean": 7.049
+    },
+    {
+      "MAGNITUD": "7",
+      "hora": "H23",
+      "count": 13935,
+      "mean": 6.732
+    },
+    {
+      "MAGNITUD": "7",
+      "hora": "H24",
+      "count": 13912,
+      "mean": 5.853
+    },
+    {
+      "MAGNITUD": "8",
+      "hora": "H01",
+      "count": 13892,
+      "mean": 24.139
+    },
+    {
+      "MAGNITUD": "8",
+      "hora": "H02",
+      "count": 13899,
+      "mean": 20.896
+    },
+    {
+      "MAGNITUD": "8",
+      "hora": "H03",
+      "count": 13880,
+      "mean": 17.607
+    },
+    {
+      "MAGNITUD": "8",
+      "hora": "H04",
+      "count": 13933,
+      "mean": 15.043
+    },
+    {
+      "MAGNITUD": "8",
+      "hora": "H05",
+      "count": 13938,
+      "mean": 13.73
+    },
+    {
+      "MAGNITUD": "8",
+      "hora": "H06",
+      "count": 13933,
+      "mean": 14.066
+    },
+    {
+      "MAGNITUD": "8",
+      "hora": "H07",
+      "count": 13921,
+      "mean": 18.5
+    },
+    {
+      "MAGNITUD": "8",
+      "hora": "H08",
+      "count": 13852,
+      "mean": 26.923
+    },
+    {
+      "MAGNITUD": "8",
+      "hora": "H09",
+      "count": 13618,
+      "mean": 30.607
+    },
+    {
+      "MAGNITUD": "8",
+      "hora": "H10",
+      "count": 13351,
+      "mean": 27.919
+    },
+    {
+      "MAGNITUD": "8",
+      "hora": "H11",
+      "count": 13342,
+      "mean": 23.726
+    },
+    {
+      "MAGNITUD": "8",
+      "hora": "H12",
+      "count": 13399,
+      "mean": 20.815
+    },
+    {
+      "MAGNITUD": "8",
+      "hora": "H13",
+      "count": 13432,
+      "mean": 18.564
+    },
+    {
+      "MAGNITUD": "8",
+      "hora": "H14",
+      "count": 13513,
+      "mean": 16.423
+    },
+    {
+      "MAGNITUD": "8",
+      "hora": "H15",
+      "count": 13666,
+      "mean": 14.315
+    },
+    {
+      "MAGNITUD": "8",
+      "hora": "H16",
+      "count": 13828,
+      "mean": 12.959
+    },
+    {
+      "MAGNITUD": "8",
+      "hora": "H17",
+      "count": 13889,
+      "mean": 13.181
+    },
+    {
+      "MAGNITUD": "8",
+      "hora": "H18",
+      "count": 13907,
+      "mean": 15.162
+    },
+    {
+      "MAGNITUD": "8",
+      "hora": "H19",
+      "count": 13914,
+      "mean": 18.618
+    },
+    {
+      "MAGNITUD": "8",
+      "hora": "H20",
+      "count": 13921,
+      "mean": 22.623
+    },
+    {
+      "MAGNITUD": "8",
+      "hora": "H21",
+      "count": 13919,
+      "mean": 26.207
+    },
+    {
+      "MAGNITUD": "8",
+      "hora": "H22",
+      "count": 13923,
+      "mean": 29.547
+    },
+    {
+      "MAGNITUD": "8",
+      "hora": "H23",
+      "count": 13936,
+      "mean": 29.952
+    },
+    {
+      "MAGNITUD": "8",
+      "hora": "H24",
+      "count": 13913,
+      "mean": 27.337
+    },
+    {
+      "MAGNITUD": "9",
+      "hora": "H01",
+      "count": 6536,
+      "mean": 10.095
+    },
+    {
+      "MAGNITUD": "9",
+      "hora": "H02",
+      "count": 6525,
+      "mean": 9.541
+    },
+    {
+      "MAGNITUD": "9",
+      "hora": "H03",
+      "count": 6522,
+      "mean": 9.041
+    },
+    {
+      "MAGNITUD": "9",
+      "hora": "H04",
+      "count": 6540,
+      "mean": 8.667
+    },
+    {
+      "MAGNITUD": "9",
+      "hora": "H05",
+      "count": 6546,
+      "mean": 8.431
+    },
+    {
+      "MAGNITUD": "9",
+      "hora": "H06",
+      "count": 6542,
+      "mean": 8.229
+    },
+    {
+      "MAGNITUD": "9",
+      "hora": "H07",
+      "count": 6555,
+      "mean": 8.344
+    },
+    {
+      "MAGNITUD": "9",
+      "hora": "H08",
+      "count": 6494,
+      "mean": 8.787
+    },
+    {
+      "MAGNITUD": "9",
+      "hora": "H09",
+      "count": 6376,
+      "mean": 9.51
+    },
+    {
+      "MAGNITUD": "9",
+      "hora": "H10",
+      "count": 6231,
+      "mean": 10.045
+    },
+    {
+      "MAGNITUD": "9",
+      "hora": "H11",
+      "count": 6281,
+      "mean": 10.132
+    },
+    {
+      "MAGNITUD": "9",
+      "hora": "H12",
+      "count": 6287,
+      "mean": 10.002
+    },
+    {
+      "MAGNITUD": "9",
+      "hora": "H13",
+      "count": 6261,
+      "mean": 9.877
+    },
+    {
+      "MAGNITUD": "9",
+      "hora": "H14",
+      "count": 6267,
+      "mean": 9.787
+    },
+    {
+      "MAGNITUD": "9",
+      "hora": "H15",
+      "count": 6292,
+      "mean": 9.26
+    },
+    {
+      "MAGNITUD": "9",
+      "hora": "H16",
+      "count": 6336,
+      "mean": 8.883
+    },
+    {
+      "MAGNITUD": "9",
+      "hora": "H17",
+      "count": 6358,
+      "mean": 8.628
+    },
+    {
+      "MAGNITUD": "9",
+      "hora": "H18",
+      "count": 6401,
+      "mean": 8.325
+    },
+    {
+      "MAGNITUD": "9",
+      "hora": "H19",
+      "count": 6435,
+      "mean": 8.34
+    },
+    {
+      "MAGNITUD": "9",
+      "hora": "H20",
+      "count": 6452,
+      "mean": 8.604
+    },
+    {
+      "MAGNITUD": "9",
+      "hora": "H21",
+      "count": 6454,
+      "mean": 9.111
+    },
+    {
+      "MAGNITUD": "9",
+      "hora": "H22",
+      "count": 6475,
+      "mean": 9.72
+    },
+    {
+      "MAGNITUD": "9",
+      "hora": "H23",
+      "count": 6483,
+      "mean": 10.209
+    },
+    {
+      "MAGNITUD": "9",
+      "hora": "H24",
+      "count": 6502,
+      "mean": 10.418
+    }
+  ]
+}
